@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-cn">
     
 <head>
     <meta charset="UTF-8">
@@ -9,7 +9,13 @@
     <title>Hexo搭建博客教程 - 一动不动是树桩</title>
     <meta name="author" content="John Doe">
     
+        <meta name="keywords" content="hexo,javascript,">
     
+    
+    
+        
+            <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
+        
     
     <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"John Doe","sameAs":["https://github.com/","http://stackoverflow.com/users","https://baidu.com/","https://facebook.com/","https://plus.google.com/","https://www.linkedin.com/profile/","mailto"]},"articleBody":"搭建Blog过程记录需要环境\n下载node.js并安装(官网下载安装),官网:https://nodejs.org/zh-cn/\n下载安装git(官网下载安装),官网:https://git-scm.com/downloads\n下载安装hexo。方法:打开cmd 运行npm install -g hexo(要翻墙)\n\n本地创建hexo静态博客\n本地任意目录创建文件夹,如MyBlog\n进入该文件夹内。右键菜单中选中git bush,输入:hexo init。生成hexo模板,需要翻墙。\n最后运行:hexo server (运行程序,访问本地localhost:4000可以看到博客已经搭建成功)\n\n与GitHub关联\n在Github上创建名字为XXX.github.io的项目,XXX为自己的github用户名。新创建的git账号要做ssh配置,参考:https://segmentfault.com/a/1190000002645623\n打开本地的MyBlog文件夹项目内的_config.yml配置文件,将其中的type设置为git这里推荐使用git地址作为repo,国内连接相对稳定。\n\ndeploy:\n  type: git\n  repository: https:&#x2F;&#x2F;github.com&#x2F;Liebesleid-z&#x2F;Liebesleid-z.github.io.git\n  branch: master\n\n\n运行:npm install hexo-deployer-git –save\n运行:hexo g(本地生成静态文件)\n运行:hexo d(将本地静态文件推送至Github)\n\n此时,打开浏览器,访问 https://liebesleid-z.github.io/\n绑定域名不绑定域名则直接通过 https://liebesleid-z.github.io/访问即可。\n\n添加一条CNAME记录:\nCNAME—&gt;tengzhangchao.github.io\n\n博客添加CNAME文件\n配置完域名解析后,进入博客目录,在source目录下新建CNAME文件,写入域名,如:http://shuzhuanger.top/\n这里写在根目录下会在推送的时候清理掉,可以复制一份到public文件夹下。\n\n运行:hexo g\n\n运行:hexo d\n\n\n写文章~\n在MyBlog目录下执行:hexo new “我的第一篇文章”,会在source-&gt;_posts文件夹内生成一个.md文件。\n编辑该文件(遵循Markdown规则)\n\n\n编写正文内容(MakeDown)\nhexo clean 删除本地静态文件(Public目录),可不执行。\nhexo g 生成本地静态文件(Public目录)\nhexo deploy 将本地静态文件推送至github(hexo d)\n\n踩坑指南在运行:hexo d时间会遇到\n\nfatal: unable to access &#39;https:&#x2F;&#x2F;github.com&#x2F;Liebesleid-z&#x2F;Liebesleid-z.github.io.git&#x2F;&#39;: Failed to connect to github.com port 443: Timed out\n\n或者Git bush 报 \nOpenSSL SSL_read: Connection was reset, errno 10054\n\n产生原因是网络不稳定,解决方法参考:https://blog.csdn.net/natahew/article/details/81387885\n","dateCreated":"2021-05-07T21:06:43+08:00","dateModified":"2021-05-08T16:07:48+08:00","datePublished":"2021-05-07T21:06:43+08:00","description":"","headline":"Hexo搭建博客教程","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2021/05/07/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/"},"publisher":{"@type":"Organization","name":"John Doe","sameAs":["https://github.com/","http://stackoverflow.com/users","https://baidu.com/","https://facebook.com/","https://plus.google.com/","https://www.linkedin.com/profile/","mailto"]},"url":"http://example.com/2021/05/07/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/","keywords":"环境搭建, BLOG"}</script>
     <meta name="description" content="搭建Blog过程记录需要环境 下载node.js并安装(官网下载安装),官网:https:&#x2F;&#x2F;nodejs.org&#x2F;zh-cn&#x2F; 下载安装git(官网下载安装),官网:https:&#x2F;&#x2F;git-scm.com&#x2F;downloads 下载安装hexo。方法:打开cmd 运行npm install -g hexo(要翻墙)  本地创建hexo静态博客 本地任意目录创建文件夹,如MyBlog 进入该文件夹内">
@@ -18,7 +24,7 @@
 <meta property="og:url" content="http://example.com/2021/05/07/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/index.html">
 <meta property="og:site_name" content="一动不动是树桩">
 <meta property="og:description" content="搭建Blog过程记录需要环境 下载node.js并安装(官网下载安装),官网:https:&#x2F;&#x2F;nodejs.org&#x2F;zh-cn&#x2F; 下载安装git(官网下载安装),官网:https:&#x2F;&#x2F;git-scm.com&#x2F;downloads 下载安装hexo。方法:打开cmd 运行npm install -g hexo(要翻墙)  本地创建hexo静态博客 本地任意目录创建文件夹,如MyBlog 进入该文件夹内">
-<meta property="og:locale" content="en_US">
+<meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/2021/05/07/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/%E5%87%BA%E9%94%99%E5%9B%BE%E7%89%87.jpg">
 <meta property="article:published_time" content="2021-05-07T13:06:43.000Z">
 <meta property="article:modified_time" content="2021-05-08T08:07:48.283Z">
@@ -72,7 +78,7 @@
             <a
                 class="header-right-picture "
                 href="#about"
-                aria-label="Open the link: /#about"
+                aria-label="打开链接: /#about"
             >
         
         
@@ -96,10 +102,10 @@
                             href="/"
                             
                             rel="noopener"
-                            title="Home"
+                            title="首页"
                         >
                         <i class="sidebar-button-icon fa fa-home" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Home</span>
+                        <span class="sidebar-button-desc">首页</span>
                     </a>
             </li>
             
@@ -110,10 +116,10 @@
                             href="/all-categories"
                             
                             rel="noopener"
-                            title="Categories"
+                            title="分类"
                         >
                         <i class="sidebar-button-icon fa fa-bookmark" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Categories</span>
+                        <span class="sidebar-button-desc">分类</span>
                     </a>
             </li>
             
@@ -124,10 +130,10 @@
                             href="/all-tags"
                             
                             rel="noopener"
-                            title="Tags"
+                            title="标签"
                         >
                         <i class="sidebar-button-icon fa fa-tags" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Tags</span>
+                        <span class="sidebar-button-desc">标签</span>
                     </a>
             </li>
             
@@ -138,10 +144,10 @@
                             href="/all-archives"
                             
                             rel="noopener"
-                            title="Archives"
+                            title="归档"
                         >
                         <i class="sidebar-button-icon fa fa-archive" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Archives</span>
+                        <span class="sidebar-button-desc">归档</span>
                     </a>
             </li>
             
@@ -152,10 +158,10 @@
                             href="#search"
                             
                             rel="noopener"
-                            title="Search"
+                            title="搜索"
                         >
                         <i class="sidebar-button-icon fa fa-search" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Search</span>
+                        <span class="sidebar-button-desc">搜索</span>
                     </a>
             </li>
             
@@ -166,10 +172,10 @@
                             href="#about"
                             
                             rel="noopener"
-                            title="About"
+                            title="关于"
                         >
                         <i class="sidebar-button-icon fa fa-question" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">About</span>
+                        <span class="sidebar-button-desc">关于</span>
                     </a>
             </li>
             
@@ -250,10 +256,10 @@
                                 target="_blank"
                             
                             rel="noopener"
-                            title="Google +"
+                            title="Google Plus"
                         >
                         <i class="sidebar-button-icon fab fa-google-plus" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Google +</span>
+                        <span class="sidebar-button-desc">Google Plus</span>
                     </a>
             </li>
             
@@ -280,10 +286,10 @@
                             href="/mailto"
                             
                             rel="noopener"
-                            title="Mail"
+                            title="邮箱"
                         >
                         <i class="sidebar-button-icon fa fa-envelope" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Mail</span>
+                        <span class="sidebar-button-desc">邮箱</span>
                     </a>
             </li>
             
@@ -329,11 +335,11 @@
         <div class="post-meta">
     <time datetime="2021-05-07T21:06:43+08:00">
 	
-		    May 07, 2021
+		    5月 07, 2021
     	
     </time>
     
-        <span>in </span>
+        <span>发布在 </span>
         
     <a class="category-link" href="/categories/%E6%A0%91%E6%A1%A9%E5%84%BF%E7%9A%84%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/">树桩儿的技术分享</a>
 
@@ -413,7 +419,7 @@
     <div id="post-footer" class="post-footer main-content-wrap">
         
             <div class="post-footer-tags">
-                <span class="text-color-light text-small">TAGGED IN</span><br/>
+                <span class="text-color-light text-small">标签</span><br/>
                 
     <a class="tag tag--primary tag--small t-none-link" href="/tags/BLOG/" rel="tag">BLOG</a> <a class="tag tag--primary tag--small t-none-link" href="/tags/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" rel="tag">环境搭建</a>
 
@@ -431,7 +437,7 @@
                     >
                         
                         <i class="fa fa-angle-left" aria-hidden="true"></i>
-                        <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                        <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
                     </a>
             </li>
             <li class="post-action">
@@ -441,10 +447,10 @@
                     class="post-action-btn btn btn--default tooltip--top"
                     href="/2021/05/07/hello-world/"
                     data-tooltip="Hello World"
-                    aria-label="NEXT: Hello World"
+                    aria-label="下一篇: Hello World"
                 >
                     
-                        <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                        <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
                         <i class="fa fa-angle-right" aria-hidden="true"></i>
                     </a>
             </li>
@@ -455,7 +461,7 @@
             <a
                 class="post-action-btn btn btn--default btn-open-shareoptions"
                 href="#btn-open-shareoptions"
-                aria-label="Share this post"
+                aria-label="Diesen Beitrag teilen"
             >
                 <i class="fa fa-share-alt" aria-hidden="true"></i>
             </a>
@@ -467,8 +473,8 @@
                 <a
                     class="post-action-btn btn btn--default"
                     target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2021/05/07/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/"
-                    title="Share on Facebook"
-                    aria-label="Share on Facebook"
+                    title="分享到 Facebook"
+                    aria-label="分享到 Facebook"
                 >
                     <i class="fab fa-facebook" aria-hidden="true"></i>
                 </a>
@@ -480,8 +486,8 @@
                 <a
                     class="post-action-btn btn btn--default"
                     target="new" href="https://twitter.com/intent/tweet?text=http://example.com/2021/05/07/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/"
-                    title="Share on Twitter"
-                    aria-label="Share on Twitter"
+                    title="分享到 Twitter"
+                    aria-label="分享到 Twitter"
                 >
                     <i class="fab fa-twitter" aria-hidden="true"></i>
                 </a>
@@ -493,8 +499,8 @@
                 <a
                     class="post-action-btn btn btn--default"
                     target="new" href="https://plus.google.com/share?url=http://example.com/2021/05/07/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/"
-                    title="Share on Google+"
-                    aria-label="Share on Google+"
+                    title="分享到 Google+"
+                    aria-label="分享到 Google+"
                 >
                     <i class="fab fa-google-plus" aria-hidden="true"></i>
                 </a>
@@ -505,7 +511,7 @@
         
         <li class="post-action">
             
-                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Nach oben">
             
                 <i class="fa fa-list" aria-hidden="true"></i>
             </a>
@@ -543,7 +549,7 @@
                     >
                         
                         <i class="fa fa-angle-left" aria-hidden="true"></i>
-                        <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                        <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
                     </a>
             </li>
             <li class="post-action">
@@ -553,10 +559,10 @@
                     class="post-action-btn btn btn--default tooltip--top"
                     href="/2021/05/07/hello-world/"
                     data-tooltip="Hello World"
-                    aria-label="NEXT: Hello World"
+                    aria-label="下一篇: Hello World"
                 >
                     
-                        <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                        <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
                         <i class="fa fa-angle-right" aria-hidden="true"></i>
                     </a>
             </li>
@@ -567,7 +573,7 @@
             <a
                 class="post-action-btn btn btn--default btn-open-shareoptions"
                 href="#btn-open-shareoptions"
-                aria-label="Share this post"
+                aria-label="Diesen Beitrag teilen"
             >
                 <i class="fa fa-share-alt" aria-hidden="true"></i>
             </a>
@@ -579,8 +585,8 @@
                 <a
                     class="post-action-btn btn btn--default"
                     target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2021/05/07/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/"
-                    title="Share on Facebook"
-                    aria-label="Share on Facebook"
+                    title="分享到 Facebook"
+                    aria-label="分享到 Facebook"
                 >
                     <i class="fab fa-facebook" aria-hidden="true"></i>
                 </a>
@@ -592,8 +598,8 @@
                 <a
                     class="post-action-btn btn btn--default"
                     target="new" href="https://twitter.com/intent/tweet?text=http://example.com/2021/05/07/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/"
-                    title="Share on Twitter"
-                    aria-label="Share on Twitter"
+                    title="分享到 Twitter"
+                    aria-label="分享到 Twitter"
                 >
                     <i class="fab fa-twitter" aria-hidden="true"></i>
                 </a>
@@ -605,8 +611,8 @@
                 <a
                     class="post-action-btn btn btn--default"
                     target="new" href="https://plus.google.com/share?url=http://example.com/2021/05/07/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/"
-                    title="Share on Google+"
-                    aria-label="Share on Google+"
+                    title="分享到 Google+"
+                    aria-label="分享到 Google+"
                 >
                     <i class="fab fa-google-plus" aria-hidden="true"></i>
                 </a>
@@ -617,7 +623,7 @@
         
         <li class="post-action">
             
-                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Nach oben">
             
                 <i class="fa fa-list" aria-hidden="true"></i>
             </a>
@@ -639,9 +645,9 @@
                         class="share-option-btn"
                         target="new"
                         href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2021/05/07/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/"
-                        aria-label="Share on Facebook"
+                        aria-label="分享到 Facebook"
                     >
-                        <i class="fab fa-facebook" aria-hidden="true"></i><span>Share on Facebook</span>
+                        <i class="fab fa-facebook" aria-hidden="true"></i><span>分享到 Facebook</span>
                     </a>
                 </li>
             
@@ -652,9 +658,9 @@
                         class="share-option-btn"
                         target="new"
                         href="https://twitter.com/intent/tweet?text=http://example.com/2021/05/07/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/"
-                        aria-label="Share on Twitter"
+                        aria-label="分享到 Twitter"
                     >
-                        <i class="fab fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
+                        <i class="fab fa-twitter" aria-hidden="true"></i><span>分享到 Twitter</span>
                     </a>
                 </li>
             
@@ -665,9 +671,9 @@
                         class="share-option-btn"
                         target="new"
                         href="https://plus.google.com/share?url=http://example.com/2021/05/07/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/"
-                        aria-label="Share on Google+"
+                        aria-label="分享到 Google+"
                     >
-                        <i class="fab fa-google-plus" aria-hidden="true"></i><span>Share on Google+</span>
+                        <i class="fab fa-google-plus" aria-hidden="true"></i><span>分享到 Google+</span>
                     </a>
                 </li>
             
