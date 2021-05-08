@@ -1,0 +1,722 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="一动不动是树桩">
+    <title>Hexo搭建博客教程 - 一动不动是树桩</title>
+    <meta name="author" content="John Doe">
+    
+    
+    
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"John Doe","sameAs":["https://github.com/","http://stackoverflow.com/users","https://twitter.com/","https://facebook.com/","https://plus.google.com/","https://www.linkedin.com/profile/","mailto"]},"articleBody":"搭建Blog过程记录需要环境\n下载node.js并安装(官网下载安装),官网:https://nodejs.org/zh-cn/\n下载安装git(官网下载安装),官网:https://git-scm.com/downloads\n下载安装hexo。方法:打开cmd 运行npm install -g hexo(要翻墙)\n\n本地创建hexo静态博客\n本地任意目录创建文件夹,如MyBlog\n进入该文件夹内。右键菜单中选中git bush,输入:hexo init。生成hexo模板,需要翻墙。\n最后运行:hexo server (运行程序,访问本地localhost:4000可以看到博客已经搭建成功)\n\n与GitHub关联\n在Github上创建名字为XXX.github.io的项目,XXX为自己的github用户名。新创建的git账号要做ssh配置,参考:https://segmentfault.com/a/1190000002645623\n打开本地的MyBlog文件夹项目内的_config.yml配置文件,将其中的type设置为git这里推荐使用git地址作为repo,国内连接相对稳定。\n\ndeploy:\n  type: git\n  repository: https:&#x2F;&#x2F;github.com&#x2F;Liebesleid-z&#x2F;Liebesleid-z.github.io.git\n  branch: master\n\n\n运行:npm install hexo-deployer-git –save\n运行:hexo g(本地生成静态文件)\n运行:hexo d(将本地静态文件推送至Github)\n\n此时,打开浏览器,访问 https://liebesleid-z.github.io/\n绑定域名不绑定域名则直接通过 https://liebesleid-z.github.io/访问即可。\n\n添加一条CNAME记录:\nCNAME—&gt;tengzhangchao.github.io\n\n博客添加CNAME文件\n配置完域名解析后,进入博客目录,在source目录下新建CNAME文件,写入域名,如:http://shuzhuanger.top/\n这里写在根目录下会在推送的时候清理掉,可以复制一份到public文件夹下。\n\n运行:hexo g\n\n运行:hexo d\n\n\n写文章~\n在MyBlog目录下执行:hexo new “我的第一篇文章”,会在source-&gt;_posts文件夹内生成一个.md文件。\n编辑该文件(遵循Markdown规则)\n\n\n编写正文内容(MakeDown)\nhexo clean 删除本地静态文件(Public目录),可不执行。\nhexo g 生成本地静态文件(Public目录)\nhexo deploy 将本地静态文件推送至github(hexo d)\n\n踩坑指南在运行:hexo d时间会遇到\n\nfatal: unable to access &#39;https:&#x2F;&#x2F;github.com&#x2F;Liebesleid-z&#x2F;Liebesleid-z.github.io.git&#x2F;&#39;: Failed to connect to github.com port 443: Timed out\n\n或者Git bush 报 \nOpenSSL SSL_read: Connection was reset, errno 10054\n\n产生原因是网络不稳定,解决方法参考:https://blog.csdn.net/natahew/article/details/81387885\n","dateCreated":"2021-05-07T21:06:43+08:00","dateModified":"2021-05-08T16:07:48+08:00","datePublished":"2021-05-07T21:06:43+08:00","description":"","headline":"Hexo搭建博客教程","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2021/05/07/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/"},"publisher":{"@type":"Organization","name":"John Doe","sameAs":["https://github.com/","http://stackoverflow.com/users","https://twitter.com/","https://facebook.com/","https://plus.google.com/","https://www.linkedin.com/profile/","mailto"]},"url":"http://example.com/2021/05/07/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/","keywords":"环境搭建, BLOG"}</script>
+    <meta name="description" content="搭建Blog过程记录需要环境 下载node.js并安装(官网下载安装),官网:https:&#x2F;&#x2F;nodejs.org&#x2F;zh-cn&#x2F; 下载安装git(官网下载安装),官网:https:&#x2F;&#x2F;git-scm.com&#x2F;downloads 下载安装hexo。方法:打开cmd 运行npm install -g hexo(要翻墙)  本地创建hexo静态博客 本地任意目录创建文件夹,如MyBlog 进入该文件夹内">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="Hexo搭建博客教程">
+<meta property="og:url" content="http://example.com/2021/05/07/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/index.html">
+<meta property="og:site_name" content="一动不动是树桩">
+<meta property="og:description" content="搭建Blog过程记录需要环境 下载node.js并安装(官网下载安装),官网:https:&#x2F;&#x2F;nodejs.org&#x2F;zh-cn&#x2F; 下载安装git(官网下载安装),官网:https:&#x2F;&#x2F;git-scm.com&#x2F;downloads 下载安装hexo。方法:打开cmd 运行npm install -g hexo(要翻墙)  本地创建hexo静态博客 本地任意目录创建文件夹,如MyBlog 进入该文件夹内">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2021/05/07/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/%E5%87%BA%E9%94%99%E5%9B%BE%E7%89%87.jpg">
+<meta property="article:published_time" content="2021-05-07T13:06:43.000Z">
+<meta property="article:modified_time" content="2021-05-08T08:07:48.283Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="环境搭建">
+<meta property="article:tag" content="BLOG">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2021/05/07/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/%E5%87%BA%E9%94%99%E5%9B%BE%E7%89%87.jpg">
+    
+    
+        
+    
+    
+    
+    
+    
+    <!--STYLES-->
+    
+<link rel="stylesheet" href="/assets/css/style-or9ijuqodoih2dlpagnqjlpbe9qijrxr61vzdqnycasy3b2opxqc6cw29zih.min.css">
+
+    <!--STYLES END-->
+    
+
+    
+
+    
+        
+    
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+    
+
+<header id="header" data-behavior="4">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <div class="header-title">
+        <a
+            class="header-title-link"
+            href="/"
+            aria-label=""
+        >
+            一动不动是树桩
+        </a>
+    </div>
+    
+        
+            <a
+                class="header-right-picture "
+                href="#about"
+                aria-label="Open the link: /#about"
+            >
+        
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+<nav id="sidebar" data-behavior="4">
+    <div class="sidebar-container">
+        
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="/"
+                            
+                            rel="noopener"
+                            title="Home"
+                        >
+                        <i class="sidebar-button-icon fa fa-home" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Home</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="/all-categories"
+                            
+                            rel="noopener"
+                            title="Categories"
+                        >
+                        <i class="sidebar-button-icon fa fa-bookmark" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Categories</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="/all-tags"
+                            
+                            rel="noopener"
+                            title="Tags"
+                        >
+                        <i class="sidebar-button-icon fa fa-tags" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Tags</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="/all-archives"
+                            
+                            rel="noopener"
+                            title="Archives"
+                        >
+                        <i class="sidebar-button-icon fa fa-archive" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Archives</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link open-algolia-search"
+                            href="#search"
+                            
+                            rel="noopener"
+                            title="Search"
+                        >
+                        <i class="sidebar-button-icon fa fa-search" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Search</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="#about"
+                            
+                            rel="noopener"
+                            title="About"
+                        >
+                        <i class="sidebar-button-icon fa fa-question" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">About</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="https://github.com/"
+                            
+                                target="_blank"
+                            
+                            rel="noopener"
+                            title="GitHub"
+                        >
+                        <i class="sidebar-button-icon fab fa-github" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">GitHub</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="http://stackoverflow.com/users"
+                            
+                                target="_blank"
+                            
+                            rel="noopener"
+                            title="Stack Overflow"
+                        >
+                        <i class="sidebar-button-icon fab fa-stack-overflow" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Stack Overflow</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="https://twitter.com/"
+                            
+                                target="_blank"
+                            
+                            rel="noopener"
+                            title="Twitter"
+                        >
+                        <i class="sidebar-button-icon fab fa-twitter" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Twitter</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="https://facebook.com/"
+                            
+                                target="_blank"
+                            
+                            rel="noopener"
+                            title="Facebook"
+                        >
+                        <i class="sidebar-button-icon fab fa-facebook" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Facebook</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="https://plus.google.com/"
+                            
+                                target="_blank"
+                            
+                            rel="noopener"
+                            title="Google +"
+                        >
+                        <i class="sidebar-button-icon fab fa-google-plus" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Google +</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="https://www.linkedin.com/profile/"
+                            
+                                target="_blank"
+                            
+                            rel="noopener"
+                            title="LinkedIn"
+                        >
+                        <i class="sidebar-button-icon fab fa-linkedin" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">LinkedIn</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="/mailto"
+                            
+                            rel="noopener"
+                            title="Mail"
+                        >
+                        <i class="sidebar-button-icon fa fa-envelope" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Mail</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="/atom.xml"
+                            
+                            rel="noopener"
+                            title="RSS"
+                        >
+                        <i class="sidebar-button-icon fa fa-rss" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">RSS</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+    </div>
+</nav>
+
+            
+            <div id="main" data-behavior="4"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title">
+            Hexo搭建博客教程
+        </h1>
+    
+    
+        <div class="post-meta">
+    <time datetime="2021-05-07T21:06:43+08:00">
+	
+		    May 07, 2021
+    	
+    </time>
+    
+        <span>in </span>
+        
+    <a class="category-link" href="/categories/%E6%A0%91%E6%A1%A9%E5%84%BF%E7%9A%84%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/">树桩儿的技术分享</a>
+
+
+    
+</div>
+
+    
+</div>
+
+    
+    <div class="post-content markdown">
+        <div class="main-content-wrap">
+            <h1 id="搭建Blog过程记录"><a href="#搭建Blog过程记录" class="headerlink" title="搭建Blog过程记录"></a>搭建Blog过程记录</h1><h2 id="需要环境"><a href="#需要环境" class="headerlink" title="需要环境"></a>需要环境</h2><ul>
+<li>下载node.js并安装(官网下载安装),官网:<a target="_blank" rel="noopener" href="https://nodejs.org/zh-cn/">https://nodejs.org/zh-cn/</a></li>
+<li>下载安装git(官网下载安装),官网:<a target="_blank" rel="noopener" href="https://git-scm.com/downloads">https://git-scm.com/downloads</a></li>
+<li>下载安装hexo。方法:打开cmd 运行<em>npm install -g hexo</em>(要翻墙)</li>
+</ul>
+<h2 id="本地创建hexo静态博客"><a href="#本地创建hexo静态博客" class="headerlink" title="本地创建hexo静态博客"></a>本地创建hexo静态博客</h2><ol>
+<li>本地任意目录创建文件夹,如MyBlog</li>
+<li>进入该文件夹内。右键菜单中选中git bush,输入:hexo init。生成hexo模板,需要翻墙。</li>
+<li>最后运行:<em>hexo server</em> (运行程序,访问本地localhost:4000可以看到博客已经搭建成功)</li>
+</ol>
+<h2 id="与GitHub关联"><a href="#与GitHub关联" class="headerlink" title="与GitHub关联"></a>与GitHub关联</h2><ul>
+<li>在Github上创建名字为XXX.github.io的项目,XXX为自己的github用户名。新创建的git账号要做ssh配置,参考:<a href="http://">https://segmentfault.com/a/1190000002645623</a></li>
+<li>打开本地的MyBlog文件夹项目内的_config.yml配置文件,将其中的type设置为git<br>这里推荐使用git地址作为repo,国内连接相对稳定。</li>
+</ul>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">deploy:
+  type: git
+  repository: https:&#x2F;&#x2F;github.com&#x2F;Liebesleid-z&#x2F;Liebesleid-z.github.io.git
+  branch: master<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>运行:<em>npm install hexo-deployer-git –save</em></li>
+<li>运行:<em>hexo g</em>(本地生成静态文件)</li>
+<li>运行:<em>hexo d</em>(将本地静态文件推送至Github)</li>
+</ul>
+<p>此时,打开浏览器,访问 <a target="_blank" rel="noopener" href="https://liebesleid-z.github.io/">https://liebesleid-z.github.io/</a></p>
+<h2 id="绑定域名"><a href="#绑定域名" class="headerlink" title="绑定域名"></a>绑定域名</h2><p>不绑定域名则直接通过 <a target="_blank" rel="noopener" href="https://liebesleid-z.github.io/%E8%AE%BF%E9%97%AE%E5%8D%B3%E5%8F%AF%E3%80%82">https://liebesleid-z.github.io/访问即可。</a></p>
+<ol>
+<li><p>添加一条CNAME记录:</p>
+<p>CNAME—&gt;tengzhangchao.github.io</p>
+</li>
+<li><p>博客添加CNAME文件</p>
+<p>配置完域名解析后,进入博客目录,在source目录下新建CNAME文件,写入域名,如:<a target="_blank" rel="noopener" href="http://shuzhuanger.top/">http://shuzhuanger.top/</a></p>
+<p>这里写在根目录下会在推送的时候清理掉,可以复制一份到public文件夹下。</p>
+</li>
+<li><p>运行:<em>hexo g</em></p>
+</li>
+<li><p>运行:<em>hexo d</em></p>
+</li>
+</ol>
+<h2 id="写文章"><a href="#写文章" class="headerlink" title="写文章~"></a>写文章~</h2><ul>
+<li>在MyBlog目录下执行:<em>hexo new “我的第一篇文章”</em>,会在source-&gt;_posts文件夹内生成一个.md文件。</li>
+<li>编辑该文件(遵循Markdown规则)</li>
+</ul>
+<ul>
+<li>编写正文内容(MakeDown)</li>
+<li>hexo clean 删除本地静态文件(Public目录),可不执行。</li>
+<li>hexo g 生成本地静态文件(Public目录)</li>
+<li>hexo deploy 将本地静态文件推送至github(hexo d)</li>
+</ul>
+<h2 id="踩坑指南"><a href="#踩坑指南" class="headerlink" title="踩坑指南"></a>踩坑指南</h2><p>在运行:<em>hexo d</em>时间会遇到</p>
+<p><img src="/2021/05/07/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/%E5%87%BA%E9%94%99%E5%9B%BE%E7%89%87.jpg" alt="出错图"></p>
+<pre class="line-numbers language-none"><code class="language-none">fatal: unable to access &#39;https:&#x2F;&#x2F;github.com&#x2F;Liebesleid-z&#x2F;Liebesleid-z.github.io.git&#x2F;&#39;: Failed to connect to github.com port 443: Timed out<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>或者Git bush 报 </p>
+<pre class="line-numbers language-none"><code class="language-none">OpenSSL SSL_read: Connection was reset, errno 10054<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>产生原因是网络不稳定,解决方法参考:<a href="http://">https://blog.csdn.net/natahew/article/details/81387885</a></p>
+
+            
+
+
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+            <div class="post-footer-tags">
+                <span class="text-color-light text-small">TAGGED IN</span><br/>
+                
+    <a class="tag tag--primary tag--small t-none-link" href="/tags/BLOG/" rel="tag">BLOG</a> <a class="tag tag--primary tag--small t-none-link" href="/tags/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" rel="tag">环境搭建</a>
+
+            </div>
+        
+        
+            <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a
+                        class="post-action-btn btn btn--disabled"
+                        aria-hidden="true"
+                    >
+                        
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                        <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                    </a>
+            </li>
+            <li class="post-action">
+                
+                    
+                <a
+                    class="post-action-btn btn btn--default tooltip--top"
+                    href="/2021/05/07/hello-world/"
+                    data-tooltip="Hello World"
+                    aria-label="NEXT: Hello World"
+                >
+                    
+                        <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a
+                class="post-action-btn btn btn--default btn-open-shareoptions"
+                href="#btn-open-shareoptions"
+                aria-label="Share this post"
+            >
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2021/05/07/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/"
+                    title="Share on Facebook"
+                    aria-label="Share on Facebook"
+                >
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://twitter.com/intent/tweet?text=http://example.com/2021/05/07/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/"
+                    title="Share on Twitter"
+                    aria-label="Share on Twitter"
+                >
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://plus.google.com/share?url=http://example.com/2021/05/07/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/"
+                    title="Share on Google+"
+                    aria-label="Share on Google+"
+                >
+                    <i class="fab fa-google-plus" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+        
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+        
+            
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2021 John Doe. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a
+                        class="post-action-btn btn btn--disabled"
+                        aria-hidden="true"
+                    >
+                        
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                        <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                    </a>
+            </li>
+            <li class="post-action">
+                
+                    
+                <a
+                    class="post-action-btn btn btn--default tooltip--top"
+                    href="/2021/05/07/hello-world/"
+                    data-tooltip="Hello World"
+                    aria-label="NEXT: Hello World"
+                >
+                    
+                        <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a
+                class="post-action-btn btn btn--default btn-open-shareoptions"
+                href="#btn-open-shareoptions"
+                aria-label="Share this post"
+            >
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2021/05/07/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/"
+                    title="Share on Facebook"
+                    aria-label="Share on Facebook"
+                >
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://twitter.com/intent/tweet?text=http://example.com/2021/05/07/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/"
+                    title="Share on Twitter"
+                    aria-label="Share on Twitter"
+                >
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://plus.google.com/share?url=http://example.com/2021/05/07/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/"
+                    title="Share on Google+"
+                    aria-label="Share on Google+"
+                >
+                    <i class="fab fa-google-plus" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+        
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                
+    <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+        <i id="btn-close-shareoptions" class="fa fa-times"></i>
+        <ul class="share-options">
+            
+                
+                
+                <li class="share-option">
+                    <a
+                        class="share-option-btn"
+                        target="new"
+                        href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2021/05/07/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/"
+                        aria-label="Share on Facebook"
+                    >
+                        <i class="fab fa-facebook" aria-hidden="true"></i><span>Share on Facebook</span>
+                    </a>
+                </li>
+            
+                
+                
+                <li class="share-option">
+                    <a
+                        class="share-option-btn"
+                        target="new"
+                        href="https://twitter.com/intent/tweet?text=http://example.com/2021/05/07/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/"
+                        aria-label="Share on Twitter"
+                    >
+                        <i class="fab fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
+                    </a>
+                </li>
+            
+                
+                
+                <li class="share-option">
+                    <a
+                        class="share-option-btn"
+                        target="new"
+                        href="https://plus.google.com/share?url=http://example.com/2021/05/07/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/"
+                        aria-label="Share on Google+"
+                    >
+                        <i class="fab fa-google-plus" aria-hidden="true"></i><span>Share on Google+</span>
+                    </a>
+                </li>
+            
+        </ul>
+    </div>
+
+
+            
+        </div>
+        
+
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-times"></i>
+        </div>
+        
+            <h4 id="about-card-name">John Doe</h4>
+        
+            <div id="about-card-bio"><p>author.bio</p>
+</div>
+        
+        
+            <div id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>author.job</p>
+
+            </div>
+        
+        
+    </div>
+</div>
+
+        
+        
+<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+        <!--SCRIPTS-->
+
+<script src="/assets/js/script-qare453sbj2vlxgydf7cjvajocrainhc9hjulmoskkvcyoclgbsvf7bimrhg.min.js"></script>
+
+<!--SCRIPTS END-->
+
+
+    
+
+
+
+
+    </body>
+</html>
