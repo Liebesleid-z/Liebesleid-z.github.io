@@ -1,45 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>postres安装指南</title>
-    <url>/2021/05/10/postgres%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/</url>
-    <content><![CDATA[<blockquote class="blockquote-center">（ง •_•）ง 加油</blockquote>
+    <title>Hello World</title>
+    <url>/2021/05/07/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<span id="more"></span>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h1 id="postgresql安装"><a href="#postgresql安装" class="headerlink" title="postgresql安装"></a>postgresql安装</h1><ol>
-<li>前往官网下载网址：<a href="http://">https://www.postgresql.org/download/</a></li>
-<li>选择windows安装包installer<br>如果网速慢，可以使用我的网盘资源，版本是10.16的64位安装包。<br>这个网盘资源是我的私有云，组内尽量一个人下载完用U盘复制下，要不然我的盘可能扛不住。。。QAQ<span id="more"></span>
-链接：<a href="https://static.hikstorage.com:8080/share/index.html?shareId=94f8c5dd423d94387f268213a26123ae">网盘</a> 密码：6970</li>
-<li> 双击下载安装包，开始安装<br><img src="/2021/05/10/postgres%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/install_1.png" alt="install_1"></li>
-<li> 你可以修改安装路径<br><img src="/2021/05/10/postgres%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/install_2.png" alt="install_2"></li>
-<li> 选择安装组件，不懂的选就是全部勾上：<br><img src="/2021/05/10/postgres%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/install_3.png" alt="install_3"></li>
-<li> 设置数据库路径，数据存储路径，最好找个剩余空间大的盘<br><img src="/2021/05/10/postgres%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/install_4.png" alt="install_4"></li>
-<li> 设置超级用户的密码，<strong>这个用户密码要记住，连接数据库的时候要用，<del>忘记了的话找回非常麻烦</del>，忘记了无法找回</strong><br><img src="/2021/05/10/postgres%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/install_5.png" alt="install_5"></li>
-<li> 设置端口号，可以直接用默认就行<br><img src="/2021/05/10/postgres%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/install_6.png" alt="install_6"></li>
-<li> 直接点 Next<br><img src="/2021/05/10/postgres%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/install_7.png" alt="install_7"></li>
-<li> 点 Next<br><img src="/2021/05/10/postgres%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/install_8.png" alt="install_8"></li>
-<li> 去掉勾选，直接点 Finish<br><img src="/2021/05/10/postgres%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/install_9.png" alt="install_9"></li>
-<li> 打开 pgAdmin 4<br><img src="/2021/05/10/postgres%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/install_10.png" alt="install_10"></li>
-<li> pgAdmin 主页如下<br><img src="/2021/05/10/postgres%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/install_11.png" alt="install_11"></li>
-<li> 点击左侧的 Servers &gt; Postgre SQL 10<br><img src="/2021/05/10/postgres%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/install_12.png" alt="install_12"></li>
-<li> 输入密码，点击 OK 即可<br><img src="/2021/05/10/postgres%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/install_13.png" alt="install_13"></li>
-<li> 控制面板如下<br><img src="/2021/05/10/postgres%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/install_14.png" alt="install_14"></li>
-<li> 打开 SQL Shell(psql)<br><img src="/2021/05/10/postgres%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/install_15.png" alt="install_15"><h1 id="Navicat安装"><a href="#Navicat安装" class="headerlink" title="Navicat安装"></a>Navicat安装</h1></li>
-<li>pgadmin在平时工作中并不是很好用，建议使用Navicat。<br>下载地址：<a href="http://">http://www.navicat.com.cn/download/navicat-premium</a></li>
-<li>根据自己电脑选择32位或64位，Navicat只提供14天试用时间，怎么一直试用找<a href="https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&rsv_idx=1&tn=baidu&wd=navicate15%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B&fenlei=256&oq=navicate%25E7%25A0%25B4%25E8%25A7%25A3%25E6%2595%2599%25E7%25A8%258B&rsv_pq=9521c81f001315e2&rsv_t=5a1cBSlG6jIaybrBKY9QNEQMr7+mjZr+rqyREo/CevILUoZRY9a8rW5y5+Q&rqlang=cn&rsv_enter=1&rsv_dl=tb&rsv_btype=t&rsv_sug3=22&rsv_sug1=22&rsv_sug7=000&rsv_sug2=0&inputT=358&rsv_sug4=1471&rsv_sug=1">百度</a>。</li>
-<li>安装步骤与平时软件相同，更改安装位置后无脑下一步。</li>
-<li>点击链接,选择PostgreSQL<br><img src="/2021/05/10/postgres%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/install_17.png" alt="install_17"></li>
-<li>配置链接信息<br><img src="/2021/05/10/postgres%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/install_18.png" alt="install_18"></li>
-<li>链接成功后右侧会显示‘已连接’</li>
-</ol>
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo server<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo generate<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo deploy<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
-      <categories>
-        <category>树桩儿的技术分享</category>
-      </categories>
-      <tags>
-        <tag>环境搭建</tag>
-        <tag>数据库</tag>
-        <tag>PG数据库</tag>
-      </tags>
   </entry>
   <entry>
     <title>Hexo搭建博客教程</title>
@@ -115,22 +93,44 @@
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/2021/05/07/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<span id="more"></span>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+    <title>postres安装指南</title>
+    <url>/2021/05/10/postgres%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/</url>
+    <content><![CDATA[<blockquote class="blockquote-center">（ง •_•）ง 加油</blockquote>
 
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo server<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo generate<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo deploy<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<h1 id="postgresql安装"><a href="#postgresql安装" class="headerlink" title="postgresql安装"></a>postgresql安装</h1><ol>
+<li>前往官网下载网址：<a href="http://">https://www.postgresql.org/download/</a></li>
+<li>选择windows安装包installer<br>如果网速慢，可以使用我的网盘资源，版本是10.16的64位安装包。<br>这个网盘资源是我的私有云，组内尽量一个人下载完用U盘复制下，要不然我的盘可能扛不住。。。QAQ<span id="more"></span>
+链接：<a href="https://static.hikstorage.com:8080/share/index.html?shareId=94f8c5dd423d94387f268213a26123ae">网盘</a> 密码：6970</li>
+<li> 双击下载安装包，开始安装<br><img src="/2021/05/10/postgres%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/install_1.png" alt="install_1"></li>
+<li> 你可以修改安装路径<br><img src="/2021/05/10/postgres%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/install_2.png" alt="install_2"></li>
+<li> 选择安装组件，不懂的选就是全部勾上：<br><img src="/2021/05/10/postgres%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/install_3.png" alt="install_3"></li>
+<li> 设置数据库路径，数据存储路径，最好找个剩余空间大的盘<br><img src="/2021/05/10/postgres%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/install_4.png" alt="install_4"></li>
+<li> 设置超级用户的密码，<strong>这个用户密码要记住，连接数据库的时候要用，<del>忘记了的话找回非常麻烦</del>，忘记了无法找回</strong><br><img src="/2021/05/10/postgres%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/install_5.png" alt="install_5"></li>
+<li> 设置端口号，可以直接用默认就行<br><img src="/2021/05/10/postgres%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/install_6.png" alt="install_6"></li>
+<li> 直接点 Next<br><img src="/2021/05/10/postgres%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/install_7.png" alt="install_7"></li>
+<li> 点 Next<br><img src="/2021/05/10/postgres%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/install_8.png" alt="install_8"></li>
+<li> 去掉勾选，直接点 Finish<br><img src="/2021/05/10/postgres%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/install_9.png" alt="install_9"></li>
+<li> 打开 pgAdmin 4<br><img src="/2021/05/10/postgres%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/install_10.png" alt="install_10"></li>
+<li> pgAdmin 主页如下<br><img src="/2021/05/10/postgres%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/install_11.png" alt="install_11"></li>
+<li> 点击左侧的 Servers &gt; Postgre SQL 10<br><img src="/2021/05/10/postgres%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/install_12.png" alt="install_12"></li>
+<li> 输入密码，点击 OK 即可<br><img src="/2021/05/10/postgres%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/install_13.png" alt="install_13"></li>
+<li> 控制面板如下<br><img src="/2021/05/10/postgres%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/install_14.png" alt="install_14"></li>
+<li> 打开 SQL Shell(psql)<br><img src="/2021/05/10/postgres%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/install_15.png" alt="install_15"><h1 id="Navicat安装"><a href="#Navicat安装" class="headerlink" title="Navicat安装"></a>Navicat安装</h1></li>
+<li>pgadmin在平时工作中并不是很好用，建议使用Navicat。<br>下载地址：<a href="http://">http://www.navicat.com.cn/download/navicat-premium</a></li>
+<li>根据自己电脑选择32位或64位，Navicat只提供14天试用时间，怎么一直试用找<a href="https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&rsv_idx=1&tn=baidu&wd=navicate15%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B&fenlei=256&oq=navicate%25E7%25A0%25B4%25E8%25A7%25A3%25E6%2595%2599%25E7%25A8%258B&rsv_pq=9521c81f001315e2&rsv_t=5a1cBSlG6jIaybrBKY9QNEQMr7+mjZr+rqyREo/CevILUoZRY9a8rW5y5+Q&rqlang=cn&rsv_enter=1&rsv_dl=tb&rsv_btype=t&rsv_sug3=22&rsv_sug1=22&rsv_sug7=000&rsv_sug2=0&inputT=358&rsv_sug4=1471&rsv_sug=1">百度</a>。</li>
+<li>安装步骤与平时软件相同，更改安装位置后无脑下一步。</li>
+<li>点击链接,选择PostgreSQL<br><img src="/2021/05/10/postgres%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/install_17.png" alt="install_17"></li>
+<li>配置链接信息<br><img src="/2021/05/10/postgres%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/install_18.png" alt="install_18"></li>
+<li>链接成功后右侧会显示‘已连接’</li>
+</ol>
 ]]></content>
+      <categories>
+        <category>树桩儿的技术分享</category>
+      </categories>
+      <tags>
+        <tag>环境搭建</tag>
+        <tag>数据库</tag>
+        <tag>PG数据库</tag>
+      </tags>
   </entry>
 </search>
