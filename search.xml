@@ -1,199 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>数据库的基本操作</title>
-    <url>/2021/05/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/</url>
-    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>SQL 是用于访问和处理数据库的标准的计算机语言。</p>
-<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>本教程使用到的 Websites 表、access_log 表、apps 表 SQL 脚本如下:</p>
-<pre class="line-numbers language-none"><code class="language-none">--Websites 表
-DROP TABLE IF EXISTS websites;
-CREATE TABLE websites (
-  id int,
-  name char(20),
-  url varchar(255) NOT NULL DEFAULT &#39;&#39;,
-  alexa int NOT NULL DEFAULT &#39;0&#39;,
-  country char(10) NOT NULL DEFAULT &#39;&#39;,
-  PRIMARY KEY (id)
-) ;
-INSERT INTO websites VALUES (&#39;1&#39;, &#39;Google&#39;, &#39;https:&#x2F;&#x2F;www.google.cm&#x2F;&#39;, &#39;1&#39;, &#39;USA&#39;), (&#39;2&#39;, &#39;淘宝&#39;, &#39;https:&#x2F;&#x2F;www.taobao.com&#x2F;&#39;, &#39;13&#39;, &#39;CN&#39;), (&#39;3&#39;, &#39;GitHub&#39;, &#39;http:&#x2F;&#x2F;www.github.com&#x2F;&#39;, &#39;69&#39;, &#39;USA&#39;), (&#39;4&#39;, &#39;微博&#39;, &#39;http:&#x2F;&#x2F;weibo.com&#x2F;&#39;, &#39;20&#39;, &#39;CN&#39;), (&#39;5&#39;, &#39;Facebook&#39;, &#39;https:&#x2F;&#x2F;www.facebook.com&#x2F;&#39;, &#39;3&#39;, &#39;USA&#39;);
+    <title>Hello World</title>
+    <url>/2021/05/07/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<span id="more"></span>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
---access_log 表
-DROP TABLE IF EXISTS access_log;
-CREATE TABLE access_log (
-  aid int NOT NULL ,
-  site_id int NOT NULL DEFAULT &#39;0&#39;,
-  count int NOT NULL DEFAULT &#39;0&#39;,
-  date date NOT NULL,
-  PRIMARY KEY (aid)
-) ;
-INSERT INTO access_log VALUES (&#39;1&#39;, &#39;1&#39;, &#39;45&#39;, &#39;2016-05-10&#39;), (&#39;2&#39;, &#39;3&#39;, &#39;100&#39;, &#39;2016-05-13&#39;), (&#39;3&#39;, &#39;1&#39;, &#39;230&#39;, &#39;2016-05-14&#39;), (&#39;4&#39;, &#39;2&#39;, &#39;10&#39;, &#39;2016-05-14&#39;), (&#39;5&#39;, &#39;5&#39;, &#39;205&#39;, &#39;2016-05-14&#39;), (&#39;6&#39;, &#39;4&#39;, &#39;13&#39;, &#39;2016-05-15&#39;), (&#39;7&#39;, &#39;3&#39;, &#39;220&#39;, &#39;2016-05-15&#39;), (&#39;8&#39;, &#39;5&#39;, &#39;545&#39;, &#39;2016-05-16&#39;), (&#39;9&#39;, &#39;3&#39;, &#39;201&#39;, &#39;2016-05-17&#39;);
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo server<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
---apps 表
-DROP TABLE IF EXISTS apps;
-CREATE TABLE apps (
-  id int NOT NULL,
-  app_name char(20) NOT NULL DEFAULT &#39;&#39;,
-  url varchar(255) NOT NULL DEFAULT &#39;&#39;,
-  country char(10) NOT NULL DEFAULT &#39;&#39;,
-  PRIMARY KEY (id)
-) ;
-INSERT INTO apps VALUES (&#39;1&#39;, &#39;QQ APP&#39;, &#39;http:&#x2F;&#x2F;im.qq.com&#x2F;&#39;, &#39;CN&#39;), (&#39;2&#39;, &#39;微博 APP&#39;, &#39;http:&#x2F;&#x2F;weibo.com&#x2F;&#39;, &#39;CN&#39;), (&#39;3&#39;, &#39;淘宝 APP&#39;, &#39;https:&#x2F;&#x2F;www.taobao.com&#x2F;&#39;, &#39;CN&#39;);
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>需要先执行脚本,执行方法</p>
-<ul>
-<li>进入pgadmin,开启QureTool<br><img src="/2021/05/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/base_sql_1.png" alt="base_sql"></li>
-<li>执行脚本<br><img src="/2021/05/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/base_sql_2.png" alt="base_sql"><h2 id="SQL-能做什么"><a href="#SQL-能做什么" class="headerlink" title="SQL 能做什么?"></a>SQL 能做什么?</h2></li>
-<li>SQL 面向数据库执行查询</li>
-<li>SQL 可从数据库取回数据</li>
-<li>SQL 可在数据库中插入新的记录</li>
-<li>SQL 可更新数据库中的数据</li>
-<li>SQL 可从数据库删除记录</li>
-<li>SQL 可创建新数据库</li>
-<li>SQL 可在数据库中创建新表</li>
-<li>SQL 可在数据库中创建存储过程</li>
-<li>SQL 可在数据库中创建视图</li>
-<li>SQL 可以设置表、存储过程和视图的权限<h2 id="一些最重要的-SQL-命令-重要"><a href="#一些最重要的-SQL-命令-重要" class="headerlink" title="一些最重要的 SQL 命令(重要)"></a>一些最重要的 SQL 命令(重要)</h2></li>
-<li>SELECT - 从数据库中提取数据</li>
-<li>UPDATE - 更新数据库中的数据</li>
-<li>DELETE - 从数据库中删除数据</li>
-<li>INSERT INTO - 向数据库中插入新数据</li>
-<li>CREATE DATABASE - 创建新数据库</li>
-<li>ALTER DATABASE - 修改数据库</li>
-<li>CREATE TABLE - 创建新表</li>
-<li>ALTER TABLE - 变更(改变)数据库表</li>
-<li>DROP TABLE - 删除表</li>
-<li>CREATE INDEX - 创建索引(搜索键)</li>
-<li>DROP INDEX - 删除索引<h2 id="SQL-语句后面的分号"><a href="#SQL-语句后面的分号" class="headerlink" title="SQL 语句后面的分号?"></a>SQL 语句后面的分号?</h2>某些数据库系统要求在每条 SQL 语句的末端使用分号。<br>分号是在数据库系统中分隔每条 SQL 语句的标准方法,这样就可以在对服务器的相同请求中执行一条以上的 SQL 语句。<br>在本教程中,我们将在每条 SQL 语句的末端使用分号。</li>
-</ul>
-<h1 id="SQL命令使用方法"><a href="#SQL命令使用方法" class="headerlink" title="SQL命令使用方法"></a>SQL命令使用方法</h1><h2 id="SQL-SELECT-语句"><a href="#SQL-SELECT-语句" class="headerlink" title="SQL SELECT 语句"></a>SQL SELECT 语句</h2><p>SELECT 语句用于从数据库中选取数据。结果被存储在一个结果表中,称为结果集。<br><strong>SQL SELECT 语法</strong></p>
-<pre class="line-numbers language-none"><code class="language-none">SELECT column_name,column_name
-FROM table_name;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>与<br><code>SELECT * FROM table_name;</code></p>
-<p><strong>SELECT Column 实例</strong><br>下面的 SQL 语句从 “Websites” 表中选取 “name” 和 “country” 列:</p>
-<pre class="line-numbers language-none"><code class="language-none">SELECT name,country FROM Websites;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>结果:<br><img src="/2021/05/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/base_sql_3.png" alt="base_sql"></p>
-<p><strong>SELECT * 实例</strong><br>下面的 SQL 语句从 “Websites” 表中选取 “name” 和 “country” 列:</p>
-<pre class="line-numbers language-none"><code class="language-none">SELECT * FROM Websites;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>结果:<br><img src="/2021/05/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/base_sql_4.png" alt="base_sql"></p>
-<h2 id="SQL-SELECT-DISTINCT-语句"><a href="#SQL-SELECT-DISTINCT-语句" class="headerlink" title="SQL SELECT DISTINCT 语句"></a>SQL SELECT DISTINCT 语句</h2><p>在表中,一个列可能会包含多个重复值,有时您也许希望仅仅列出不同(distinct)的值。<br>DISTINCT 关键词用于返回唯一不同的值<br><strong>SQL SELECT DISTINCT 语法</strong></p>
-<pre class="line-numbers language-none"><code class="language-none">SELECT DISTINCT column_name,column_name
-FROM table_name;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p><strong>SELECT DISTINCT 实例</strong><br>下面的 SQL 语句仅从 “Websites” 表的 “country” 列中选取唯一不同的值,也就是去掉 “country” 列重复值:<br><code>SELECT DISTINCT country FROM Websites;</code><br>结果:<br><img src="/base_sql_5.png" alt="base_sql"></p>
-<p>SQL WHERE 子句<br>WHERE 子句用于提取那些满足指定条件的记录。</p>
-<p><strong>SQL WHERE 语法</strong></p>
-<pre class="line-numbers language-none"><code class="language-none">SELECT column_name,column_name
-FROM table_name
-WHERE column_name operator value;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo generate<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p><strong>WHERE 子句实例</strong><br>下面的 SQL 语句从 “Websites” 表中选取国家为 “CN” 的所有网站:</p>
-<p>实例<br><code>SELECT * FROM Websites WHERE country=&#39;CN&#39;;</code><br>结果<br><img src="/2021/05/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/base_sql_6.png" alt="base_sql"><br><strong>文本字段与数值字段的区分</strong><br>SQL 使用单引号来环绕文本值(大部分数据库系统也接受双引号)。<br>在上个实例中 ‘CN’ 文本字段使用了单引号。<br>如果是数值字段,请不要使用引号。<br>实例<br><code>SELECT * FROM Websites WHERE id=1;</code><br>结果<br><img src="/2021/05/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/base_sql_7.png" alt="base_sql"></p>
-<h2 id="SQL-AND-amp-OR-运算符"><a href="#SQL-AND-amp-OR-运算符" class="headerlink" title="SQL AND &amp; OR 运算符"></a>SQL AND &amp; OR 运算符</h2><p>AND &amp; OR 运算符用于基于一个以上的条件对记录进行过滤。</p>
-<p><strong>SQL AND &amp; OR 运算符</strong><br>如果第一个条件和第二个条件都成立,则 AND 运算符显示一条记录。<br>如果第一个条件和第二个条件中只要有一个成立,则 OR 运算符显示一条记录。</p>
-<p><strong>AND 运算符实例</strong><br>下面的 SQL 语句从 “Websites” 表中选取国家为 “CN” 且alexa排名大于 “50” 的所有网站:</p>
-<p>实例</p>
-<pre class="line-numbers language-none"><code class="language-none">SELECT * FROM Websites
-WHERE country&#x3D;&#39;USA&#39;
-AND alexa &gt; 50;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p>结果<br><img src="/2021/05/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/base_sql_8.png" alt="base_sql"></p>
-<h2 id="SQL-ORDER-BY-关键字"><a href="#SQL-ORDER-BY-关键字" class="headerlink" title="SQL ORDER BY 关键字"></a>SQL ORDER BY 关键字</h2><p>ORDER BY 关键字用于对结果集按照一个列或者多个列进行排序。</p>
-<p>ORDER BY 关键字默认按照升序对记录进行排序。如果需要按照降序对记录进行排序,您可以使用 DESC 关键字。</p>
-<p><strong>SQL ORDER BY 语法</strong></p>
-<pre class="line-numbers language-none"><code class="language-none">SELECT column_name,column_name
-FROM table_name
-ORDER BY column_name,column_name ASC|DESC;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p><strong>ORDER BY 实例</strong><br>下面的 SQL 语句从 “Websites” 表中选取所有网站,并按照 “alexa” 列排序:</p>
-<p>实例</p>
-<pre class="line-numbers language-none"><code class="language-none">--增序
-SELECT * FROM Websites
-ORDER BY alexa;
---降序
-SELECT * FROM Websites
-ORDER BY alexa DESC;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>增序:<br><img src="/2021/05/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/base_sql_9.png" alt="base_sql"><br>降序:<br><img src="/2021/05/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/base_sql_10.png" alt="base_sql"></p>
-<h2 id="SQL-INSERT-INTO-语句"><a href="#SQL-INSERT-INTO-语句" class="headerlink" title="SQL INSERT INTO 语句"></a>SQL INSERT INTO 语句</h2><p>INSERT INTO 语句用于向表中插入新记录。</p>
-<p><strong>SQL INSERT INTO 语法</strong><br>INSERT INTO 语句可以有两种编写形式。<br>第一种形式无需指定要插入数据的列名,只需提供被插入的值即可:</p>
-<pre class="line-numbers language-none"><code class="language-none">INSERT INTO table_name
-VALUES (value1,value2,value3,...);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>第二种形式需要指定列名及被插入的值:</p>
-<pre class="line-numbers language-none"><code class="language-none">INSERT INTO table_name (column1,column2,column3,...)
-VALUES (value1,value2,value3,...);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo deploy<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p><strong>INSERT INTO 实例</strong><br>假设我们要向 “Websites” 表中插入一个新行。</p>
-<p>我们可以使用下面的 SQL 语句:</p>
-<p>实例</p>
-<pre class="line-numbers language-none"><code class="language-none">INSERT INTO Websites (id, name, url, alexa, country)
-VALUES (&#39;6&#39;,&#39;百度&#39;,&#39;https:&#x2F;&#x2F;www.baidu.com&#x2F;&#39;,&#39;4&#39;,&#39;CN&#39;);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p><img src="/2021/05/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/base_sql_11.png" alt="base_sql"><br><img src="/2021/05/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/base_sql_13.png" alt="base_sql"></p>
-<h2 id="SQL-UPDATE-语句"><a href="#SQL-UPDATE-语句" class="headerlink" title="SQL UPDATE 语句"></a>SQL UPDATE 语句</h2><p>UPDATE 语句用于更新表中已存在的记录。</p>
-<p><strong>SQL UPDATE 语法</strong></p>
-<pre class="line-numbers language-none"><code class="language-none">UPDATE table_name
-SET column1&#x3D;value1,column2&#x3D;value2,...
-WHERE some_column&#x3D;some_value;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p><strong>SQL UPDATE 实例</strong><br>假设我们要把 “菜鸟教程” 的 alexa 排名更新为 5000,country 改为 USA。</p>
-<p>我们使用下面的 SQL 语句:<code> DELETE FROM table_name WHERE some_column=some_value;</code></p>
-<p>实例</p>
-<pre class="line-numbers language-none"><code class="language-none">UPDATE Websites 
-SET alexa&#x3D;&#39;5000&#39;, country&#x3D;&#39;CN&#39; 
-WHERE name&#x3D;&#39;GitHub&#39;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p><img src="/2021/05/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/base_sql_12.png" alt="base_sql"><br><img src="/2021/05/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/base_sql_14.png" alt="base_sql"></p>
-<h2 id="SQL-DELETE-语句"><a href="#SQL-DELETE-语句" class="headerlink" title="SQL DELETE 语句"></a>SQL DELETE 语句</h2><p>DELETE 语句用于删除表中的行。</p>
-<p><strong>SQL DELETE 语法</strong><br><code> DELETE FROM table_name WHERE some_column=some_value;</code></p>
-<p><strong>SQL DELETE 实例</strong><br>假设我们要从 “Websites” 表中删除网站名为 “Facebook” 且国家为 USA 的网站。<br>我们使用下面的 SQL 语句:</p>
-<p>实例:</p>
-<pre class="line-numbers language-none"><code class="language-none">DELETE FROM Websites
-WHERE name&#x3D;&#39;Facebook&#39; AND country&#x3D;&#39;USA&#39;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p><img src="/2021/05/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/base_sql_15.png" alt="base_sql"></p>
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
-      <categories>
-        <category>树桩儿的技术分享</category>
-      </categories>
-      <tags>
-        <tag>数据库</tag>
-        <tag>Postgres</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>postres安装指南</title>
-    <url>/2021/05/10/postres%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/</url>
-    <content><![CDATA[<blockquote class="blockquote-center">（ง •_•）ง 加油</blockquote>
-
-<h1 id="postgresql安装"><a href="#postgresql安装" class="headerlink" title="postgresql安装"></a>postgresql安装</h1><ol>
-<li>前往官网下载网址：<a href="https://www.postgresql.org/download/">download</a></li>
-<li>选择windows安装包installer<br>如果网速慢，可以使用我的网盘资源，版本是10.16的64位安装包。<br>这个网盘资源是我的私有云，组内尽量一个人下载完用U盘复制下，要不然我的盘可能扛不住。。。QAQ<span id="more"></span>
-链接：<a href="https://static.hikstorage.com:8080/share/index.html?shareId=94f8c5dd423d94387f268213a26123ae">网盘</a> 密码：6970</li>
-<li>双击下载安装包，开始安装<br><img src="/2021/05/10/postres%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/install_1.png" alt="install_1"></li>
-<li>你可以修改安装路径<br><img src="/2021/05/10/postres%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/install_2.png" alt="install_2"></li>
-<li>选择安装组件，不懂的选就是全部勾上：<br><img src="/2021/05/10/postres%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/install_3.png" alt="install_3"></li>
-<li>设置数据库路径，数据存储路径，最好找个剩余空间大的盘<br><img src="/2021/05/10/postres%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/install_4.png" alt="install_4"></li>
-<li>设置超级用户的密码，<strong>这个用户密码要记住，连接数据库的时候要用，<del>忘记了的话找回非常麻烦</del>，忘记了无法找回</strong><br><img src="/2021/05/10/postres%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/install_5.png" alt="install_5"></li>
-<li>设置端口号，可以直接用默认就行<br><img src="/2021/05/10/postres%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/install_6.png" alt="install_6"></li>
-<li>直接点 Next<br><img src="/2021/05/10/postres%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/install_7.png" alt="install_7"></li>
-<li>点 Next<br><img src="/2021/05/10/postres%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/install_8.png" alt="install_8"></li>
-<li>去掉勾选，直接点 Finish<br><img src="/2021/05/10/postres%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/install_9.png" alt="install_9"></li>
-<li>打开 pgAdmin 4<br><img src="/2021/05/10/postres%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/install_10.png" alt="install_10"></li>
-<li>pgAdmin 主页如下<br><img src="/2021/05/10/postres%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/install_11.png" alt="install_11"></li>
-<li>点击左侧的 Servers &gt; Postgre SQL 10<br><img src="/2021/05/10/postres%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/install_12.png" alt="install_12"></li>
-<li>输入密码，点击 OK 即可<br><img src="/2021/05/10/postres%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/install_13.png" alt="install_13"></li>
-<li>控制面板如下<br><img src="/2021/05/10/postres%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/install_14.png" alt="install_14"></li>
-<li>打开 SQL Shell(psql)<br><img src="/2021/05/10/postres%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/install_15.png" alt="install_15"></li>
-</ol>
-<h1 id="Navicat安装"><a href="#Navicat安装" class="headerlink" title="Navicat安装"></a>Navicat安装</h1><ol>
-<li>pgadmin在平时工作中并不是很好用，建议使用Navicat。<br>下载地址：<a href="http://www.navicat.com.cn/download/navicat-premium">http://www.navicat.com.cn/download/navicat-premium</a></li>
-<li>根据自己电脑选择32位或64位，Navicat只提供14天试用时间，怎么一直试用找<a href="https://www.baidu.com/s?ie=utf-8&amp;f=8&amp;rsv_bp=1&amp;rsv_idx=1&amp;tn=baidu&amp;wd=navicate15%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B&amp;fenlei=256&amp;oq=navicate%25E7%25A0%25B4%25E8%25A7%25A3%25E6%2595%2599%25E7%25A8%258B&amp;rsv_pq=9521c81f001315e2&amp;rsv_t=5a1cBSlG6jIaybrBKY9QNEQMr7+mjZr+rqyREo/CevILUoZRY9a8rW5y5+Q&amp;rqlang=cn&amp;rsv_enter=1&amp;rsv_dl=tb&amp;rsv_btype=t&amp;rsv_sug3=22&amp;rsv_sug1=22&amp;rsv_sug7=000&amp;rsv_sug2=0&amp;inputT=358&amp;rsv_sug4=1471&amp;rsv_sug=1">baidu </a>。</li>
-<li>安装步骤与平时软件相同，更改安装位置后无脑下一步。</li>
-<li>点击链接,选择PostgreSQL<br><img src="/2021/05/10/postres%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/install_17.png" alt="install_17"></li>
-<li>配置链接信息<br><img src="/2021/05/10/postres%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/install_18.png" alt="install_18"></li>
-<li>链接成功后右侧会显示‘已连接’</li>
-</ol>
-]]></content>
-      <categories>
-        <category>树桩儿的技术分享</category>
-      </categories>
-      <tags>
-        <tag>环境搭建</tag>
-        <tag>数据库</tag>
-        <tag>Postgres</tag>
-      </tags>
   </entry>
   <entry>
     <title>Hexo搭建博客教程</title>
@@ -269,22 +93,198 @@ WHERE name&#x3D;&#39;Facebook&#39; AND country&#x3D;&#39;USA&#39;;<span aria-hid
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/2021/05/07/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<span id="more"></span>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+    <title>postres安装指南</title>
+    <url>/2021/05/10/postres%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/</url>
+    <content><![CDATA[<blockquote class="blockquote-center">（ง •_•）ง 加油</blockquote>
 
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo server<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo generate<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo deploy<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<h1 id="postgresql安装"><a href="#postgresql安装" class="headerlink" title="postgresql安装"></a>postgresql安装</h1><ol>
+<li>前往官网下载网址：<a href="https://www.postgresql.org/download/">download</a></li>
+<li>选择windows安装包installer<br>如果网速慢，可以使用我的网盘资源，版本是10.16的64位安装包。<br>这个网盘资源是我的私有云，组内尽量一个人下载完用U盘复制下，要不然我的盘可能扛不住。。。QAQ<span id="more"></span>
+链接：<a href="https://static.hikstorage.com:8080/share/index.html?shareId=94f8c5dd423d94387f268213a26123ae">网盘</a> 密码：6970</li>
+<li>双击下载安装包，开始安装<br><img src="/2021/05/10/postres%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/install_1.png" alt="install_1"></li>
+<li>你可以修改安装路径<br><img src="/2021/05/10/postres%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/install_2.png" alt="install_2"></li>
+<li>选择安装组件，不懂的选就是全部勾上：<br><img src="/2021/05/10/postres%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/install_3.png" alt="install_3"></li>
+<li>设置数据库路径，数据存储路径，最好找个剩余空间大的盘<br><img src="/2021/05/10/postres%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/install_4.png" alt="install_4"></li>
+<li>设置超级用户的密码，<strong>这个用户密码要记住，连接数据库的时候要用，<del>忘记了的话找回非常麻烦</del>，忘记了无法找回</strong><br><img src="/2021/05/10/postres%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/install_5.png" alt="install_5"></li>
+<li>设置端口号，可以直接用默认就行<br><img src="/2021/05/10/postres%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/install_6.png" alt="install_6"></li>
+<li>直接点 Next<br><img src="/2021/05/10/postres%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/install_7.png" alt="install_7"></li>
+<li>点 Next<br><img src="/2021/05/10/postres%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/install_8.png" alt="install_8"></li>
+<li>去掉勾选，直接点 Finish<br><img src="/2021/05/10/postres%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/install_9.png" alt="install_9"></li>
+<li>打开 pgAdmin 4<br><img src="/2021/05/10/postres%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/install_10.png" alt="install_10"></li>
+<li>pgAdmin 主页如下<br><img src="/2021/05/10/postres%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/install_11.png" alt="install_11"></li>
+<li>点击左侧的 Servers &gt; Postgre SQL 10<br><img src="/2021/05/10/postres%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/install_12.png" alt="install_12"></li>
+<li>输入密码，点击 OK 即可<br><img src="/2021/05/10/postres%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/install_13.png" alt="install_13"></li>
+<li>控制面板如下<br><img src="/2021/05/10/postres%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/install_14.png" alt="install_14"></li>
+<li>打开 SQL Shell(psql)<br><img src="/2021/05/10/postres%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/install_15.png" alt="install_15"></li>
+</ol>
+<h1 id="Navicat安装"><a href="#Navicat安装" class="headerlink" title="Navicat安装"></a>Navicat安装</h1><ol>
+<li>pgadmin在平时工作中并不是很好用，建议使用Navicat。<br>下载地址：<a href="http://www.navicat.com.cn/download/navicat-premium">http://www.navicat.com.cn/download/navicat-premium</a></li>
+<li>根据自己电脑选择32位或64位，Navicat只提供14天试用时间，怎么一直试用找<a href="https://www.baidu.com/s?ie=utf-8&amp;f=8&amp;rsv_bp=1&amp;rsv_idx=1&amp;tn=baidu&amp;wd=navicate15%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B&amp;fenlei=256&amp;oq=navicate%25E7%25A0%25B4%25E8%25A7%25A3%25E6%2595%2599%25E7%25A8%258B&amp;rsv_pq=9521c81f001315e2&amp;rsv_t=5a1cBSlG6jIaybrBKY9QNEQMr7+mjZr+rqyREo/CevILUoZRY9a8rW5y5+Q&amp;rqlang=cn&amp;rsv_enter=1&amp;rsv_dl=tb&amp;rsv_btype=t&amp;rsv_sug3=22&amp;rsv_sug1=22&amp;rsv_sug7=000&amp;rsv_sug2=0&amp;inputT=358&amp;rsv_sug4=1471&amp;rsv_sug=1">baidu </a>。</li>
+<li>安装步骤与平时软件相同，更改安装位置后无脑下一步。</li>
+<li>点击链接,选择PostgreSQL<br><img src="/2021/05/10/postres%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/install_17.png" alt="install_17"></li>
+<li>配置链接信息<br><img src="/2021/05/10/postres%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/install_18.png" alt="install_18"></li>
+<li>链接成功后右侧会显示‘已连接’</li>
+</ol>
 ]]></content>
+      <categories>
+        <category>树桩儿的技术分享</category>
+      </categories>
+      <tags>
+        <tag>环境搭建</tag>
+        <tag>数据库</tag>
+        <tag>Postgres</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>数据库的基本操作</title>
+    <url>/2021/05/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>SQL 是用于访问和处理数据库的标准的计算机语言。</p>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>本教程使用到的 Websites 表、access_log 表、apps 表 SQL 脚本如下:</p>
+<pre class="line-numbers language-none"><code class="language-none">--Websites 表
+DROP TABLE IF EXISTS websites;
+CREATE TABLE websites (
+  id int,
+  name char(20),
+  url varchar(255) NOT NULL DEFAULT &#39;&#39;,
+  alexa int NOT NULL DEFAULT &#39;0&#39;,
+  country char(10) NOT NULL DEFAULT &#39;&#39;,
+  PRIMARY KEY (id)
+) ;
+INSERT INTO websites VALUES (&#39;1&#39;, &#39;Google&#39;, &#39;https:&#x2F;&#x2F;www.google.cm&#x2F;&#39;, &#39;1&#39;, &#39;USA&#39;), (&#39;2&#39;, &#39;淘宝&#39;, &#39;https:&#x2F;&#x2F;www.taobao.com&#x2F;&#39;, &#39;13&#39;, &#39;CN&#39;), (&#39;3&#39;, &#39;GitHub&#39;, &#39;http:&#x2F;&#x2F;www.github.com&#x2F;&#39;, &#39;69&#39;, &#39;USA&#39;), (&#39;4&#39;, &#39;微博&#39;, &#39;http:&#x2F;&#x2F;weibo.com&#x2F;&#39;, &#39;20&#39;, &#39;CN&#39;), (&#39;5&#39;, &#39;Facebook&#39;, &#39;https:&#x2F;&#x2F;www.facebook.com&#x2F;&#39;, &#39;3&#39;, &#39;USA&#39;);
+
+--access_log 表
+DROP TABLE IF EXISTS access_log;
+CREATE TABLE access_log (
+  aid int NOT NULL ,
+  site_id int NOT NULL DEFAULT &#39;0&#39;,
+  count int NOT NULL DEFAULT &#39;0&#39;,
+  date date NOT NULL,
+  PRIMARY KEY (aid)
+) ;
+INSERT INTO access_log VALUES (&#39;1&#39;, &#39;1&#39;, &#39;45&#39;, &#39;2016-05-10&#39;), (&#39;2&#39;, &#39;3&#39;, &#39;100&#39;, &#39;2016-05-13&#39;), (&#39;3&#39;, &#39;1&#39;, &#39;230&#39;, &#39;2016-05-14&#39;), (&#39;4&#39;, &#39;2&#39;, &#39;10&#39;, &#39;2016-05-14&#39;), (&#39;5&#39;, &#39;5&#39;, &#39;205&#39;, &#39;2016-05-14&#39;), (&#39;6&#39;, &#39;4&#39;, &#39;13&#39;, &#39;2016-05-15&#39;), (&#39;7&#39;, &#39;3&#39;, &#39;220&#39;, &#39;2016-05-15&#39;), (&#39;8&#39;, &#39;5&#39;, &#39;545&#39;, &#39;2016-05-16&#39;), (&#39;9&#39;, &#39;3&#39;, &#39;201&#39;, &#39;2016-05-17&#39;);
+
+--apps 表
+DROP TABLE IF EXISTS apps;
+CREATE TABLE apps (
+  id int NOT NULL,
+  app_name char(20) NOT NULL DEFAULT &#39;&#39;,
+  url varchar(255) NOT NULL DEFAULT &#39;&#39;,
+  country char(10) NOT NULL DEFAULT &#39;&#39;,
+  PRIMARY KEY (id)
+) ;
+INSERT INTO apps VALUES (&#39;1&#39;, &#39;QQ APP&#39;, &#39;http:&#x2F;&#x2F;im.qq.com&#x2F;&#39;, &#39;CN&#39;), (&#39;2&#39;, &#39;微博 APP&#39;, &#39;http:&#x2F;&#x2F;weibo.com&#x2F;&#39;, &#39;CN&#39;), (&#39;3&#39;, &#39;淘宝 APP&#39;, &#39;https:&#x2F;&#x2F;www.taobao.com&#x2F;&#39;, &#39;CN&#39;);
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>需要先执行脚本,执行方法</p>
+<ul>
+<li>进入pgadmin,开启QureTool<br><img src="/2021/05/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/sql_base_1.png" alt="base_sql"></li>
+<li>执行脚本<br><img src="/2021/05/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/sql_base_2.png" alt="base_sql"><h2 id="SQL-能做什么"><a href="#SQL-能做什么" class="headerlink" title="SQL 能做什么?"></a>SQL 能做什么?</h2></li>
+<li>SQL 面向数据库执行查询</li>
+<li>SQL 可从数据库取回数据</li>
+<li>SQL 可在数据库中插入新的记录</li>
+<li>SQL 可更新数据库中的数据</li>
+<li>SQL 可从数据库删除记录</li>
+<li>SQL 可创建新数据库</li>
+<li>SQL 可在数据库中创建新表</li>
+<li>SQL 可在数据库中创建存储过程</li>
+<li>SQL 可在数据库中创建视图</li>
+<li>SQL 可以设置表、存储过程和视图的权限<h2 id="一些最重要的-SQL-命令-重要"><a href="#一些最重要的-SQL-命令-重要" class="headerlink" title="一些最重要的 SQL 命令(重要)"></a>一些最重要的 SQL 命令(重要)</h2></li>
+<li>SELECT - 从数据库中提取数据</li>
+<li>UPDATE - 更新数据库中的数据</li>
+<li>DELETE - 从数据库中删除数据</li>
+<li>INSERT INTO - 向数据库中插入新数据</li>
+<li>CREATE DATABASE - 创建新数据库</li>
+<li>ALTER DATABASE - 修改数据库</li>
+<li>CREATE TABLE - 创建新表</li>
+<li>ALTER TABLE - 变更(改变)数据库表</li>
+<li>DROP TABLE - 删除表</li>
+<li>CREATE INDEX - 创建索引(搜索键)</li>
+<li>DROP INDEX - 删除索引<h2 id="SQL-语句后面的分号"><a href="#SQL-语句后面的分号" class="headerlink" title="SQL 语句后面的分号?"></a>SQL 语句后面的分号?</h2>某些数据库系统要求在每条 SQL 语句的末端使用分号。<br>分号是在数据库系统中分隔每条 SQL 语句的标准方法,这样就可以在对服务器的相同请求中执行一条以上的 SQL 语句。<br>在本教程中,我们将在每条 SQL 语句的末端使用分号。</li>
+</ul>
+<h1 id="SQL命令使用方法"><a href="#SQL命令使用方法" class="headerlink" title="SQL命令使用方法"></a>SQL命令使用方法</h1><h2 id="SQL-SELECT-语句"><a href="#SQL-SELECT-语句" class="headerlink" title="SQL SELECT 语句"></a>SQL SELECT 语句</h2><p>SELECT 语句用于从数据库中选取数据。结果被存储在一个结果表中,称为结果集。<br><strong>SQL SELECT 语法</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">SELECT column_name,column_name
+FROM table_name;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>与<br><code>SELECT * FROM table_name;</code></p>
+<p><strong>SELECT Column 实例</strong><br>下面的 SQL 语句从 “Websites” 表中选取 “name” 和 “country” 列:</p>
+<pre class="line-numbers language-none"><code class="language-none">SELECT name,country FROM Websites;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>结果:<br><img src="/2021/05/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/sql_base_3.png" alt="base_sql"></p>
+<p><strong>SELECT * 实例</strong><br>下面的 SQL 语句从 “Websites” 表中选取 “name” 和 “country” 列:</p>
+<pre class="line-numbers language-none"><code class="language-none">SELECT * FROM Websites;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>结果:<br><img src="/2021/05/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/sql_base_4.png" alt="base_sql"></p>
+<h2 id="SQL-SELECT-DISTINCT-语句"><a href="#SQL-SELECT-DISTINCT-语句" class="headerlink" title="SQL SELECT DISTINCT 语句"></a>SQL SELECT DISTINCT 语句</h2><p>在表中,一个列可能会包含多个重复值,有时您也许希望仅仅列出不同(distinct)的值。<br>DISTINCT 关键词用于返回唯一不同的值<br><strong>SQL SELECT DISTINCT 语法</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">SELECT DISTINCT column_name,column_name
+FROM table_name;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p><strong>SELECT DISTINCT 实例</strong><br>下面的 SQL 语句仅从 “Websites” 表的 “country” 列中选取唯一不同的值,也就是去掉 “country” 列重复值:<br><code>SELECT DISTINCT country FROM Websites;</code><br>结果:<br><img src="/2021/05/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/sql_base_5.png" alt="base_sql"></p>
+<p>SQL WHERE 子句<br>WHERE 子句用于提取那些满足指定条件的记录。</p>
+<p><strong>SQL WHERE 语法</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">SELECT column_name,column_name
+FROM table_name
+WHERE column_name operator value;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>WHERE 子句实例</strong><br>下面的 SQL 语句从 “Websites” 表中选取国家为 “CN” 的所有网站:</p>
+<p>实例<br><code>SELECT * FROM Websites WHERE country=&#39;CN&#39;;</code><br>结果<br><img src="/2021/05/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/sql_base_6.png" alt="base_sql"><br><strong>文本字段与数值字段的区分</strong><br>SQL 使用单引号来环绕文本值(大部分数据库系统也接受双引号)。<br>在上个实例中 ‘CN’ 文本字段使用了单引号。<br>如果是数值字段,请不要使用引号。<br>实例<br><code>SELECT * FROM Websites WHERE id=1;</code><br>结果<br><img src="/2021/05/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/sql_base_7.png" alt="base_sql"></p>
+<h2 id="SQL-AND-amp-OR-运算符"><a href="#SQL-AND-amp-OR-运算符" class="headerlink" title="SQL AND &amp; OR 运算符"></a>SQL AND &amp; OR 运算符</h2><p>AND &amp; OR 运算符用于基于一个以上的条件对记录进行过滤。</p>
+<p><strong>SQL AND &amp; OR 运算符</strong><br>如果第一个条件和第二个条件都成立,则 AND 运算符显示一条记录。<br>如果第一个条件和第二个条件中只要有一个成立,则 OR 运算符显示一条记录。</p>
+<p><strong>AND 运算符实例</strong><br>下面的 SQL 语句从 “Websites” 表中选取国家为 “CN” 且alexa排名大于 “50” 的所有网站:</p>
+<p>实例</p>
+<pre class="line-numbers language-none"><code class="language-none">SELECT * FROM Websites
+WHERE country&#x3D;&#39;USA&#39;
+AND alexa &gt; 50;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>结果<br><img src="/2021/05/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/sql_base_8.png" alt="base_sql"></p>
+<h2 id="SQL-ORDER-BY-关键字"><a href="#SQL-ORDER-BY-关键字" class="headerlink" title="SQL ORDER BY 关键字"></a>SQL ORDER BY 关键字</h2><p>ORDER BY 关键字用于对结果集按照一个列或者多个列进行排序。</p>
+<p>ORDER BY 关键字默认按照升序对记录进行排序。如果需要按照降序对记录进行排序,您可以使用 DESC 关键字。</p>
+<p><strong>SQL ORDER BY 语法</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">SELECT column_name,column_name
+FROM table_name
+ORDER BY column_name,column_name ASC|DESC;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p><strong>ORDER BY 实例</strong><br>下面的 SQL 语句从 “Websites” 表中选取所有网站,并按照 “alexa” 列排序:</p>
+<p>实例</p>
+<pre class="line-numbers language-none"><code class="language-none">--增序
+SELECT * FROM Websites
+ORDER BY alexa;
+--降序
+SELECT * FROM Websites
+ORDER BY alexa DESC;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>增序:<br><img src="/2021/05/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/sql_base_9.png" alt="base_sql"><br>降序:<br><img src="/2021/05/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/sql_base_10.png" alt="base_sql"></p>
+<h2 id="SQL-INSERT-INTO-语句"><a href="#SQL-INSERT-INTO-语句" class="headerlink" title="SQL INSERT INTO 语句"></a>SQL INSERT INTO 语句</h2><p>INSERT INTO 语句用于向表中插入新记录。</p>
+<p><strong>SQL INSERT INTO 语法</strong><br>INSERT INTO 语句可以有两种编写形式。<br>第一种形式无需指定要插入数据的列名,只需提供被插入的值即可:</p>
+<pre class="line-numbers language-none"><code class="language-none">INSERT INTO table_name
+VALUES (value1,value2,value3,...);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>第二种形式需要指定列名及被插入的值:</p>
+<pre class="line-numbers language-none"><code class="language-none">INSERT INTO table_name (column1,column2,column3,...)
+VALUES (value1,value2,value3,...);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p><strong>INSERT INTO 实例</strong><br>假设我们要向 “Websites” 表中插入一个新行。</p>
+<p>我们可以使用下面的 SQL 语句:</p>
+<p>实例</p>
+<pre class="line-numbers language-none"><code class="language-none">INSERT INTO Websites (id, name, url, alexa, country)
+VALUES (&#39;6&#39;,&#39;百度&#39;,&#39;https:&#x2F;&#x2F;www.baidu.com&#x2F;&#39;,&#39;4&#39;,&#39;CN&#39;);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p><img src="/2021/05/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/sql_base_11.png" alt="base_sql"><br><img src="/2021/05/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/sql_base_13.png" alt="base_sql"></p>
+<h2 id="SQL-UPDATE-语句"><a href="#SQL-UPDATE-语句" class="headerlink" title="SQL UPDATE 语句"></a>SQL UPDATE 语句</h2><p>UPDATE 语句用于更新表中已存在的记录。</p>
+<p><strong>SQL UPDATE 语法</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">UPDATE table_name
+SET column1&#x3D;value1,column2&#x3D;value2,...
+WHERE some_column&#x3D;some_value;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p><strong>SQL UPDATE 实例</strong><br>假设我们要把 “菜鸟教程” 的 alexa 排名更新为 5000,country 改为 USA。</p>
+<p>我们使用下面的 SQL 语句:<code> DELETE FROM table_name WHERE some_column=some_value;</code></p>
+<p>实例</p>
+<pre class="line-numbers language-none"><code class="language-none">UPDATE Websites 
+SET alexa&#x3D;&#39;5000&#39;, country&#x3D;&#39;CN&#39; 
+WHERE name&#x3D;&#39;GitHub&#39;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p><img src="/2021/05/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/sql_base_12.png" alt="base_sql"><br><img src="/2021/05/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/sql_base_14.png" alt="base_sql"></p>
+<h2 id="SQL-DELETE-语句"><a href="#SQL-DELETE-语句" class="headerlink" title="SQL DELETE 语句"></a>SQL DELETE 语句</h2><p>DELETE 语句用于删除表中的行。</p>
+<p><strong>SQL DELETE 语法</strong><br><code> DELETE FROM table_name WHERE some_column=some_value;</code></p>
+<p><strong>SQL DELETE 实例</strong><br>假设我们要从 “Websites” 表中删除网站名为 “Facebook” 且国家为 USA 的网站。<br>我们使用下面的 SQL 语句:</p>
+<p>实例:</p>
+<pre class="line-numbers language-none"><code class="language-none">DELETE FROM Websites
+WHERE name&#x3D;&#39;Facebook&#39; AND country&#x3D;&#39;USA&#39;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p><img src="/2021/05/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/sql_base_15.png" alt="base_sql"></p>
+]]></content>
+      <categories>
+        <category>树桩儿的技术分享</category>
+      </categories>
+      <tags>
+        <tag>数据库</tag>
+        <tag>Postgres</tag>
+      </tags>
   </entry>
 </search>

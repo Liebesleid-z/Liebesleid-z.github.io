@@ -374,8 +374,8 @@ INSERT INTO apps VALUES (&#39;1&#39;, &#39;QQ APP&#39;, &#39;http:&#x2F;&#x2F;im
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>需要先执行脚本,执行方法</p>
 <ul>
-<li>进入pgadmin,开启QureTool<br><img src="/2021/05/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/base_sql_1.png" alt="base_sql"></li>
-<li>执行脚本<br><img src="/2021/05/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/base_sql_2.png" alt="base_sql"><h2 id="SQL-能做什么"><a href="#SQL-能做什么" class="headerlink" title="SQL 能做什么?"></a>SQL 能做什么?</h2></li>
+<li>进入pgadmin,开启QureTool<br><img src="/2021/05/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/sql_base_1.png" alt="base_sql"></li>
+<li>执行脚本<br><img src="/2021/05/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/sql_base_2.png" alt="base_sql"><h2 id="SQL-能做什么"><a href="#SQL-能做什么" class="headerlink" title="SQL 能做什么?"></a>SQL 能做什么?</h2></li>
 <li>SQL 面向数据库执行查询</li>
 <li>SQL 可从数据库取回数据</li>
 <li>SQL 可在数据库中插入新的记录</li>
@@ -404,14 +404,14 @@ FROM table_name;<span aria-hidden="true" class="line-numbers-rows"><span></span>
 <p>与<br><code>SELECT * FROM table_name;</code></p>
 <p><strong>SELECT Column 实例</strong><br>下面的 SQL 语句从 “Websites” 表中选取 “name” 和 “country” 列:</p>
 <pre class="line-numbers language-none"><code class="language-none">SELECT name,country FROM Websites;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>结果:<br><img src="/2021/05/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/base_sql_3.png" alt="base_sql"></p>
+<p>结果:<br><img src="/2021/05/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/sql_base_3.png" alt="base_sql"></p>
 <p><strong>SELECT * 实例</strong><br>下面的 SQL 语句从 “Websites” 表中选取 “name” 和 “country” 列:</p>
 <pre class="line-numbers language-none"><code class="language-none">SELECT * FROM Websites;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>结果:<br><img src="/2021/05/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/base_sql_4.png" alt="base_sql"></p>
+<p>结果:<br><img src="/2021/05/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/sql_base_4.png" alt="base_sql"></p>
 <h2 id="SQL-SELECT-DISTINCT-语句"><a href="#SQL-SELECT-DISTINCT-语句" class="headerlink" title="SQL SELECT DISTINCT 语句"></a>SQL SELECT DISTINCT 语句</h2><p>在表中,一个列可能会包含多个重复值,有时您也许希望仅仅列出不同(distinct)的值。<br>DISTINCT 关键词用于返回唯一不同的值<br><strong>SQL SELECT DISTINCT 语法</strong></p>
 <pre class="line-numbers language-none"><code class="language-none">SELECT DISTINCT column_name,column_name
 FROM table_name;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p><strong>SELECT DISTINCT 实例</strong><br>下面的 SQL 语句仅从 “Websites” 表的 “country” 列中选取唯一不同的值,也就是去掉 “country” 列重复值:<br><code>SELECT DISTINCT country FROM Websites;</code><br>结果:<br><img src="/base_sql_5.png" alt="base_sql"></p>
+<p><strong>SELECT DISTINCT 实例</strong><br>下面的 SQL 语句仅从 “Websites” 表的 “country” 列中选取唯一不同的值,也就是去掉 “country” 列重复值:<br><code>SELECT DISTINCT country FROM Websites;</code><br>结果:<br><img src="/2021/05/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/sql_base_5.png" alt="base_sql"></p>
 <p>SQL WHERE 子句<br>WHERE 子句用于提取那些满足指定条件的记录。</p>
 <p><strong>SQL WHERE 语法</strong></p>
 <pre class="line-numbers language-none"><code class="language-none">SELECT column_name,column_name
@@ -419,7 +419,7 @@ FROM table_name
 WHERE column_name operator value;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <p><strong>WHERE 子句实例</strong><br>下面的 SQL 语句从 “Websites” 表中选取国家为 “CN” 的所有网站:</p>
-<p>实例<br><code>SELECT * FROM Websites WHERE country=&#39;CN&#39;;</code><br>结果<br><img src="/2021/05/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/base_sql_6.png" alt="base_sql"><br><strong>文本字段与数值字段的区分</strong><br>SQL 使用单引号来环绕文本值(大部分数据库系统也接受双引号)。<br>在上个实例中 ‘CN’ 文本字段使用了单引号。<br>如果是数值字段,请不要使用引号。<br>实例<br><code>SELECT * FROM Websites WHERE id=1;</code><br>结果<br><img src="/2021/05/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/base_sql_7.png" alt="base_sql"></p>
+<p>实例<br><code>SELECT * FROM Websites WHERE country=&#39;CN&#39;;</code><br>结果<br><img src="/2021/05/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/sql_base_6.png" alt="base_sql"><br><strong>文本字段与数值字段的区分</strong><br>SQL 使用单引号来环绕文本值(大部分数据库系统也接受双引号)。<br>在上个实例中 ‘CN’ 文本字段使用了单引号。<br>如果是数值字段,请不要使用引号。<br>实例<br><code>SELECT * FROM Websites WHERE id=1;</code><br>结果<br><img src="/2021/05/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/sql_base_7.png" alt="base_sql"></p>
 <h2 id="SQL-AND-amp-OR-运算符"><a href="#SQL-AND-amp-OR-运算符" class="headerlink" title="SQL AND &amp; OR 运算符"></a>SQL AND &amp; OR 运算符</h2><p>AND &amp; OR 运算符用于基于一个以上的条件对记录进行过滤。</p>
 <p><strong>SQL AND &amp; OR 运算符</strong><br>如果第一个条件和第二个条件都成立,则 AND 运算符显示一条记录。<br>如果第一个条件和第二个条件中只要有一个成立,则 OR 运算符显示一条记录。</p>
 <p><strong>AND 运算符实例</strong><br>下面的 SQL 语句从 “Websites” 表中选取国家为 “CN” 且alexa排名大于 “50” 的所有网站:</p>
@@ -427,7 +427,7 @@ WHERE column_name operator value;<span aria-hidden="true" class="line-numbers-ro
 <pre class="line-numbers language-none"><code class="language-none">SELECT * FROM Websites
 WHERE country&#x3D;&#39;USA&#39;
 AND alexa &gt; 50;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p>结果<br><img src="/2021/05/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/base_sql_8.png" alt="base_sql"></p>
+<p>结果<br><img src="/2021/05/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/sql_base_8.png" alt="base_sql"></p>
 <h2 id="SQL-ORDER-BY-关键字"><a href="#SQL-ORDER-BY-关键字" class="headerlink" title="SQL ORDER BY 关键字"></a>SQL ORDER BY 关键字</h2><p>ORDER BY 关键字用于对结果集按照一个列或者多个列进行排序。</p>
 <p>ORDER BY 关键字默认按照升序对记录进行排序。如果需要按照降序对记录进行排序,您可以使用 DESC 关键字。</p>
 <p><strong>SQL ORDER BY 语法</strong></p>
@@ -442,7 +442,7 @@ ORDER BY alexa;
 --降序
 SELECT * FROM Websites
 ORDER BY alexa DESC;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>增序:<br><img src="/2021/05/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/base_sql_9.png" alt="base_sql"><br>降序:<br><img src="/2021/05/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/base_sql_10.png" alt="base_sql"></p>
+<p>增序:<br><img src="/2021/05/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/sql_base_9.png" alt="base_sql"><br>降序:<br><img src="/2021/05/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/sql_base_10.png" alt="base_sql"></p>
 <h2 id="SQL-INSERT-INTO-语句"><a href="#SQL-INSERT-INTO-语句" class="headerlink" title="SQL INSERT INTO 语句"></a>SQL INSERT INTO 语句</h2><p>INSERT INTO 语句用于向表中插入新记录。</p>
 <p><strong>SQL INSERT INTO 语法</strong><br>INSERT INTO 语句可以有两种编写形式。<br>第一种形式无需指定要插入数据的列名,只需提供被插入的值即可:</p>
 <pre class="line-numbers language-none"><code class="language-none">INSERT INTO table_name
@@ -456,7 +456,7 @@ VALUES (value1,value2,value3,...);<span aria-hidden="true" class="line-numbers-r
 <p>实例</p>
 <pre class="line-numbers language-none"><code class="language-none">INSERT INTO Websites (id, name, url, alexa, country)
 VALUES (&#39;6&#39;,&#39;百度&#39;,&#39;https:&#x2F;&#x2F;www.baidu.com&#x2F;&#39;,&#39;4&#39;,&#39;CN&#39;);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p><img src="/2021/05/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/base_sql_11.png" alt="base_sql"><br><img src="/2021/05/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/base_sql_13.png" alt="base_sql"></p>
+<p><img src="/2021/05/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/sql_base_11.png" alt="base_sql"><br><img src="/2021/05/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/sql_base_13.png" alt="base_sql"></p>
 <h2 id="SQL-UPDATE-语句"><a href="#SQL-UPDATE-语句" class="headerlink" title="SQL UPDATE 语句"></a>SQL UPDATE 语句</h2><p>UPDATE 语句用于更新表中已存在的记录。</p>
 <p><strong>SQL UPDATE 语法</strong></p>
 <pre class="line-numbers language-none"><code class="language-none">UPDATE table_name
@@ -468,14 +468,14 @@ WHERE some_column&#x3D;some_value;<span aria-hidden="true" class="line-numbers-r
 <pre class="line-numbers language-none"><code class="language-none">UPDATE Websites 
 SET alexa&#x3D;&#39;5000&#39;, country&#x3D;&#39;CN&#39; 
 WHERE name&#x3D;&#39;GitHub&#39;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p><img src="/2021/05/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/base_sql_12.png" alt="base_sql"><br><img src="/2021/05/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/base_sql_14.png" alt="base_sql"></p>
+<p><img src="/2021/05/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/sql_base_12.png" alt="base_sql"><br><img src="/2021/05/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/sql_base_14.png" alt="base_sql"></p>
 <h2 id="SQL-DELETE-语句"><a href="#SQL-DELETE-语句" class="headerlink" title="SQL DELETE 语句"></a>SQL DELETE 语句</h2><p>DELETE 语句用于删除表中的行。</p>
 <p><strong>SQL DELETE 语法</strong><br><code> DELETE FROM table_name WHERE some_column=some_value;</code></p>
 <p><strong>SQL DELETE 实例</strong><br>假设我们要从 “Websites” 表中删除网站名为 “Facebook” 且国家为 USA 的网站。<br>我们使用下面的 SQL 语句:</p>
 <p>实例:</p>
 <pre class="line-numbers language-none"><code class="language-none">DELETE FROM Websites
 WHERE name&#x3D;&#39;Facebook&#39; AND country&#x3D;&#39;USA&#39;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p><img src="/2021/05/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/base_sql_15.png" alt="base_sql"></p>
+<p><img src="/2021/05/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/sql_base_15.png" alt="base_sql"></p>
 
           
         
