@@ -70,10 +70,12 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="数据库,Postgres," />
 
 
 
+
+  
 
 
   <link rel="alternate" href="/atom.xml" title="一动不动是树桩" type="application/atom+xml" />
@@ -83,13 +85,35 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="一动不动是树桩">
-<meta property="og:url" content="http://example.com/index.html">
+<meta name="description" content="前言SQL 是用于访问和处理数据库的标准的计算机语言。 准备工作本教程使用到的 Websites 表、access_log 表、apps 表 SQL 脚本如下: --Websites 表 DROP TABLE IF EXISTS websites; CREATE TABLE websites (   id int,   name char(20),   url varchar(255) NOT N">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据库的基本操作">
+<meta property="og:url" content="http://example.com/2021/05/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/index.html">
 <meta property="og:site_name" content="一动不动是树桩">
+<meta property="og:description" content="前言SQL 是用于访问和处理数据库的标准的计算机语言。 准备工作本教程使用到的 Websites 表、access_log 表、apps 表 SQL 脚本如下: --Websites 表 DROP TABLE IF EXISTS websites; CREATE TABLE websites (   id int,   name char(20),   url varchar(255) NOT N">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2021/05/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/base_sql_1.png">
+<meta property="og:image" content="http://example.com/2021/05/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/base_sql_2.png">
+<meta property="og:image" content="http://example.com/2021/05/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/base_sql_3.png">
+<meta property="og:image" content="http://example.com/2021/05/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/base_sql_4.png">
+<meta property="og:image" content="http://example.com/base_sql_5.png">
+<meta property="og:image" content="http://example.com/2021/05/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/base_sql_6.png">
+<meta property="og:image" content="http://example.com/2021/05/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/base_sql_7.png">
+<meta property="og:image" content="http://example.com/2021/05/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/base_sql_8.png">
+<meta property="og:image" content="http://example.com/2021/05/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/base_sql_9.png">
+<meta property="og:image" content="http://example.com/2021/05/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/base_sql_10.png">
+<meta property="og:image" content="http://example.com/2021/05/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/base_sql_11.png">
+<meta property="og:image" content="http://example.com/2021/05/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/base_sql_13.png">
+<meta property="og:image" content="http://example.com/2021/05/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/base_sql_12.png">
+<meta property="og:image" content="http://example.com/2021/05/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/base_sql_14.png">
+<meta property="og:image" content="http://example.com/2021/05/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/base_sql_15.png">
+<meta property="article:published_time" content="2021-05-16T13:06:43.000Z">
+<meta property="article:modified_time" content="2021-05-16T16:51:15.157Z">
 <meta property="article:author" content="Jerry Zhao">
+<meta property="article:tag" content="数据库">
+<meta property="article:tag" content="Postgres">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2021/05/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/base_sql_1.png">
 
 
 
@@ -119,13 +143,13 @@
 
 
 
-  <link rel="canonical" href="http://example.com/"/>
+  <link rel="canonical" href="http://example.com/2021/05/16/数据库的基本操作/"/>
 
 
 
 
 
-  <title>一动不动是树桩</title>
+  <title>数据库的基本操作 | 一动不动是树桩</title>
   
 
 
@@ -144,8 +168,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -228,9 +251,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -260,9 +283,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2021/05/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" itemprop="url">数据库的基本操作</a></h1>
+          <h1 class="post-title" itemprop="name headline">数据库的基本操作</h1>
         
 
         <div class="post-meta">
@@ -334,9 +355,7 @@
       
 
       
-        
-          
-            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>SQL 是用于访问和处理数据库的标准的计算机语言。</p>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>SQL 是用于访问和处理数据库的标准的计算机语言。</p>
 <h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>本教程使用到的 Websites 表、access_log 表、apps 表 SQL 脚本如下:</p>
 <pre class="line-numbers language-none"><code class="language-none">--Websites 表
 DROP TABLE IF EXISTS websites;
@@ -477,8 +496,6 @@ WHERE name&#x3D;&#39;GitHub&#39;;<span aria-hidden="true" class="line-numbers-ro
 WHERE name&#x3D;&#39;Facebook&#39; AND country&#x3D;&#39;USA&#39;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p><img src="/2021/05/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/base_sql_15.png" alt="base_sql"></p>
 
-          
-        
       
     </div>
     
@@ -493,321 +510,38 @@ WHERE name&#x3D;&#39;Facebook&#39; AND country&#x3D;&#39;USA&#39;;<span aria-hid
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/05/10/postres%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/yeyeye_tou.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="一动不动是树桩">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2021/05/10/postres%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/" itemprop="url">postres安装指南</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-05-10T21:06:43+08:00">
-                2021-05-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%A0%91%E6%A1%A9%E5%84%BF%E7%9A%84%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/" itemprop="url" rel="index">
-                    <span itemprop="name">树桩儿的技术分享</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
+            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag"><i class="fa fa-tag"></i> 数据库</a>
           
-
+            <a href="/tags/Postgres/" rel="tag"><i class="fa fa-tag"></i> Postgres</a>
           
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
+      
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
+      
       
       
 
       
-        
-          <blockquote class="blockquote-center">（ง •_•）ง 加油</blockquote>
-
-<h1 id="postgresql安装"><a href="#postgresql安装" class="headerlink" title="postgresql安装"></a>postgresql安装</h1><ol>
-<li>前往官网下载网址：<a target="_blank" rel="noopener" href="https://www.postgresql.org/download/">download</a></li>
-<li>选择windows安装包installer<br>如果网速慢，可以使用我的网盘资源，版本是10.16的64位安装包。<br>这个网盘资源是我的私有云，组内尽量一个人下载完用U盘复制下，要不然我的盘可能扛不住。。。QAQ</li></ol>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2021/05/10/postres%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/#more" rel="contents">
-              Read more &raquo;
-            </a>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/05/10/postres%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/" rel="next" title="postres安装指南">
+                <i class="fa fa-chevron-left"></i> postres安装指南
+              </a>
+            
           </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
 
-    
+          <span class="post-nav-divider"></span>
 
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/05/07/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/yeyeye_tou.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="一动不动是树桩">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2021/05/07/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/" itemprop="url">Hexo搭建博客教程</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+          <div class="post-nav-prev post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-05-07T21:06:43+08:00">
-                2021-05-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%A0%91%E6%A1%A9%E5%84%BF%E7%9A%84%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/" itemprop="url" rel="index">
-                    <span itemprop="name">树桩儿的技术分享</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <blockquote class="blockquote-center">优秀的人,不是不合群,而是他们合群的人里面没有你</blockquote>
-
-
-<h1 id="需要环境"><a href="#需要环境" class="headerlink" title="需要环境"></a>需要环境</h1><ul>
-<li>下载node.js并安装(官网下载安装),官网:<a target="_blank" rel="noopener" href="https://nodejs.org/zh-cn/">https://nodejs.org/zh-cn/</a></li>
-<li>下载安装git(官网下载安装),官网:<a target="_blank" rel="noopener" href="https://git-scm.com/downloads">https://git-scm.com/downloads</a></li>
-<li>下载安装hexo。方法:打开cmd 运行<em>npm install -g hexo</em>(要翻墙)</li>
-</ul>
-<h1 id="本地创建hexo静态博客"><a href="#本地创建hexo静态博客" class="headerlink" title="本地创建hexo静态博客"></a>本地创建hexo静态博客</h1><ol>
-<li>本地任意目录创建文件夹,如MyBlog</li>
-<li>进入该文件夹内。右键菜单中选中git bush,输入:hexo init。生成hexo模板,需要翻墙。</li>
-<li>最后运行:<em>hexo server</em> (运行程序,访问本地localhost:4000可以看到博客已经搭建成功)</li></ol>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2021/05/07/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -817,134 +551,11 @@ WHERE name&#x3D;&#39;Facebook&#39; AND country&#x3D;&#39;USA&#39;;<span aria-hid
   </article>
 
 
-    
-      
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/05/07/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/yeyeye_tou.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="一动不动是树桩">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2021/05/07/hello-world/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-05-07T20:18:47+08:00">
-                2021-05-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2021/05/07/hello-world/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+    <div class="post-spread">
       
     </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
 
 
           </div>
@@ -952,6 +563,10 @@ WHERE name&#x3D;&#39;Facebook&#39; AND country&#x3D;&#39;USA&#39;;<span aria-hid
 
 
           
+
+  
+
+
 
         </div>
         
@@ -972,8 +587,17 @@ WHERE name&#x3D;&#39;Facebook&#39; AND country&#x3D;&#39;USA&#39;;<span aria-hid
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -1060,6 +684,22 @@ WHERE name&#x3D;&#39;Facebook&#39; AND country&#x3D;&#39;USA&#39;;<span aria-hid
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="nav-number">1.1.</span> <span class="nav-text">准备工作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL-%E8%83%BD%E5%81%9A%E4%BB%80%E4%B9%88"><span class="nav-number">1.2.</span> <span class="nav-text">SQL 能做什么?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E6%9C%80%E9%87%8D%E8%A6%81%E7%9A%84-SQL-%E5%91%BD%E4%BB%A4-%E9%87%8D%E8%A6%81"><span class="nav-number">1.3.</span> <span class="nav-text">一些最重要的 SQL 命令(重要)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL-%E8%AF%AD%E5%8F%A5%E5%90%8E%E9%9D%A2%E7%9A%84%E5%88%86%E5%8F%B7"><span class="nav-number">1.4.</span> <span class="nav-text">SQL 语句后面的分号?</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SQL%E5%91%BD%E4%BB%A4%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">SQL命令使用方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL-SELECT-%E8%AF%AD%E5%8F%A5"><span class="nav-number">2.1.</span> <span class="nav-text">SQL SELECT 语句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL-SELECT-DISTINCT-%E8%AF%AD%E5%8F%A5"><span class="nav-number">2.2.</span> <span class="nav-text">SQL SELECT DISTINCT 语句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL-AND-amp-OR-%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">2.3.</span> <span class="nav-text">SQL AND &amp; OR 运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL-ORDER-BY-%E5%85%B3%E9%94%AE%E5%AD%97"><span class="nav-number">2.4.</span> <span class="nav-text">SQL ORDER BY 关键字</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL-INSERT-INTO-%E8%AF%AD%E5%8F%A5"><span class="nav-number">2.5.</span> <span class="nav-text">SQL INSERT INTO 语句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL-UPDATE-%E8%AF%AD%E5%8F%A5"><span class="nav-number">2.6.</span> <span class="nav-text">SQL UPDATE 语句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL-DELETE-%E8%AF%AD%E5%8F%A5"><span class="nav-number">2.7.</span> <span class="nav-text">SQL DELETE 语句</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1204,6 +844,10 @@ WHERE name&#x3D;&#39;Facebook&#39; AND country&#x3D;&#39;USA&#39;;<span aria-hid
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
