@@ -102,12 +102,11 @@
 <meta property="og:image" content="http://example.com/2021/05/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/sql_base_8.png">
 <meta property="og:image" content="http://example.com/2021/05/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/sql_base_9.png">
 <meta property="og:image" content="http://example.com/2021/05/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/sql_base_10.png">
-<meta property="og:image" content="http://example.com/2021/05/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/sql_base_11.png">
 <meta property="og:image" content="http://example.com/2021/05/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/sql_base_13.png">
-<meta property="og:image" content="http://example.com/2021/05/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/sql_base_12.png">
+<meta property="og:image" content="http://example.com/2021/05/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/sql_base_14.png">
 <meta property="og:image" content="http://example.com/2021/05/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/sql_base_15.png">
 <meta property="article:published_time" content="2021-05-16T13:06:43.000Z">
-<meta property="article:modified_time" content="2021-05-16T17:03:28.177Z">
+<meta property="article:modified_time" content="2021-05-16T17:04:10.403Z">
 <meta property="article:author" content="Jerry Zhao">
 <meta property="article:tag" content="数据库">
 <meta property="article:tag" content="Postgres">
@@ -455,7 +454,8 @@ VALUES (value1,value2,value3,...);<span aria-hidden="true" class="line-numbers-r
 <p>实例</p>
 <pre class="line-numbers language-none"><code class="language-none">INSERT INTO Websites (id, name, url, alexa, country)
 VALUES (&#39;6&#39;,&#39;百度&#39;,&#39;https:&#x2F;&#x2F;www.baidu.com&#x2F;&#39;,&#39;4&#39;,&#39;CN&#39;);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p><img src="/2021/05/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/sql_base_11.png" alt="base_sql"><br><img src="/2021/05/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/sql_base_13.png" alt="base_sql"></p>
+
+<p><img src="/2021/05/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/sql_base_13.png" alt="base_sql"></p>
 <h2 id="SQL-UPDATE-语句"><a href="#SQL-UPDATE-语句" class="headerlink" title="SQL UPDATE 语句"></a>SQL UPDATE 语句</h2><p>UPDATE 语句用于更新表中已存在的记录。</p>
 <p><strong>SQL UPDATE 语法</strong></p>
 <pre class="line-numbers language-none"><code class="language-none">UPDATE table_name
@@ -467,7 +467,7 @@ WHERE some_column&#x3D;some_value;<span aria-hidden="true" class="line-numbers-r
 <pre class="line-numbers language-none"><code class="language-none">UPDATE Websites 
 SET alexa&#x3D;&#39;5000&#39;, country&#x3D;&#39;CN&#39; 
 WHERE name&#x3D;&#39;GitHub&#39;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p><img src="/2021/05/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/sql_base_12.png" alt="base_sql"></p>
+<p><img src="/2021/05/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/sql_base_14.png" alt="base_sql"></p>
 <h2 id="Update-警告！"><a href="#Update-警告！" class="headerlink" title="Update 警告！"></a>Update 警告！</h2><p>在更新记录时要格外小心！在上面的实例中，如果我们省略了 WHERE 子句，如下所示：</p>
 <pre class="line-numbers language-none"><code class="language-none">UPDATE Websites
 SET alexa&#x3D;&#39;5000&#39;, country&#x3D;&#39;USA&#39;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
